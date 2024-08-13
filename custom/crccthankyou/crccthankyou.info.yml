@@ -1,0 +1,6 @@
+name: 'CRCC Complaint Form Module Thank You Page'
+type: module
+description:  'CRCC Complaint Form Module Thank You Page'
+core_version_requirement: ^8 || ^9 || ^10
+package: 'custom'
+

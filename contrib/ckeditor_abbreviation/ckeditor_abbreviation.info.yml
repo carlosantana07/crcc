@@ -1,0 +1,14 @@
+name: CKEditor Abbreviation
+type: module
+description: Adds CKEditor abbreviation button.
+core_version_requirement: ^9.5 || ^10
+package: CKEditor
+dependencies:
+  - drupal:ckeditor5
+test_dependencies:
+  - ckeditor:ckeditor
+
+# Information added by Drupal.org packaging script on 2024-05-10
+version: '4.0.0-alpha4'
+project: 'ckeditor_abbreviation'
+datestamp: 1715323778

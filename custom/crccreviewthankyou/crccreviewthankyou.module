@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains crccreviewthankyou.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function crccreviewthankyou_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the crccreviewthankyou module.
+    case 'help.page.crccthankyou':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Testing') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function crccreviewthankyou_theme() {
+  return [
+    'crccthankyou' => [
+      'render element' => 'children',
+    ],
+  ];
+}

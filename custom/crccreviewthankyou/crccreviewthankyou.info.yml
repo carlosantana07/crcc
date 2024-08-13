@@ -1,0 +1,6 @@
+name: 'CRCC Request Review Form Module Thank You Page'
+type: module
+description:  ' CRCC Request Review Form Module Thank You Page'
+core_version_requirement:  ^10
+package: 'custom'
+

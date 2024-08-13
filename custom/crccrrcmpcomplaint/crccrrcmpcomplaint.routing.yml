@@ -1,0 +1,7 @@
+crccrrcmpcomplaint.testing:
+  path: '/fill-your-form'
+  defaults:
+    _form: '\Drupal\crccrrcmpcomplaint\Form\crccrrcmpcomplaint'
+    _title: "" #'RCMP Complaint Form | Civilian Review and Complaints Commission for the RCMP'
+  requirements:
+    _permission: 'access content'

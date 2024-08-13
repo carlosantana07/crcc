@@ -1,0 +1,20 @@
+name: 'WxT Library'
+description: 'Integrates Drupal with the WET-BOEW jQuery Framework Assets.'
+type: module
+core_version_requirement: '^9 || ^10'
+package: WxT
+configure: wxt_library.settings
+
+# Required modules
+dependencies:
+  - drupal:language
+
+# Required libraries
+libraries:
+  - wxt_library/wet-boew
+  - wxt_library/wet-boew-dev
+
+# Information added by Drupal.org packaging script on 2024-07-02
+version: '8.x-8.3'
+project: 'wxt_library'
+datestamp: 1719885164

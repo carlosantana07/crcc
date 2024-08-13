@@ -1,0 +1,7 @@
+crccrequestreview.testing:
+  path: '/request-review-form'
+  defaults:
+    _form: '\Drupal\crccrequestreview\Form\crccrequestreview'
+    _title: "Request for Review Form" #'Request Review Form | Civilian Review and Complaints Commission for the RCMP'
+  requirements:
+    _permission: 'access content'

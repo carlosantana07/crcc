@@ -1,0 +1,7 @@
+crccreviewthankyou.crccreviewthankyou:
+  path: '/crccreviewthankyou'
+  defaults:
+    _controller: '\Drupal\crccreviewthankyou\Controller\DefaultController::crccreviewthankyou'
+    _title: "Request for Review Fom" #'Thank You | Civilian Review and Complaints Commission for the RCMP'
+  requirements:
+    _permission: 'access content'

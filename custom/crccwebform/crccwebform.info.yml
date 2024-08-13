@@ -1,0 +1,7 @@
+name: 'CRCC Complaint Form Module'
+type: module
+description: 'CRCC Complaint Form Module'
+package: custom
+#Version of Drupal it can be used with. 9 is the minimum and 10 the maximum
+#you can update the numbers at will according to drupal requirements
+core_version_requirement: ^9 || ^10

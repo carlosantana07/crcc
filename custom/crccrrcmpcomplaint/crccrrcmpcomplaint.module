@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains helloworld.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function crccrrcmpcomplaint_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the helloworld module.
+    case 'help.page.crccrrcmpcomplaint':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CRCC RCMP Complaint form Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function crccrrcmpcomplaint_theme() {
+  return [
+    'crccrrcmpcomplaint' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+

@@ -1,0 +1,7 @@
+crccthankyou.default_controller_hello:
+  path: '/thank-you'
+  defaults:
+    _controller: '\Drupal\crccthankyou\Controller\DefaultController::crccthankyou'
+    _title: "" #'Thank You | Civilian Review and Complaints Commission for the RCMP'
+  requirements:
+    _permission: 'access content'

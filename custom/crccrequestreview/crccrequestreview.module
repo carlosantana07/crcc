@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains helloworld.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function crccrequestreview_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the helloworld module.
+    case 'help.page.crccrequestreviewform':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CRCC Request Review form Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function crccrequestreview_theme() {
+  return [
+    'crccrequestreview' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0"?>
+<record recordId="" recordType="ccmEnterprise" recordKey="">
+    <master tableName="CCM_MASTER">
+        <fields>
+            <field tableName="CCM_MASTER" fieldName="ADDBY"><![CDATA[svc_envoy]]></field>
+            <field tableName="CCM_MASTER" fieldName="CALLER_TYPE"><![CDATA[UNKNOWN-INCONNU]]></field>
+            <field tableName="CCM_MASTER" fieldName="INTAKE_METHOD"><![CDATA[ONLINE-EN LIGNE]]></field>
+            <field tableName="CCM_MASTER" fieldName="CASE_STATUS"><![CDATA[PENDING-EN ATTENTE]]></field>
+			<field tableName="CCM_MASTER" fieldName="CASE_TYPE"><![CDATA[INT-RÉC]]></field>
+			<field tableName="CCM_MASTER" fieldName="RECORD_OWNER"><![CDATA[INTAKE]]></field>
+            <!--<field tableName="CCM_MASTER" fieldName="CRCC_OFFICE"><![CDATA[NIO-BNRP]]></field>-->
+            <field tableName="CCM_MASTER" fieldName="CASE_TAKER"><![CDATA[CRCC-CCETP]]></field>
+			<field tableName="CCM_MASTER" fieldName="CASE_DETAILS"><![CDATA[Online Complaint Form]]></field>
+			<field tableName="CCM_MASTER" fieldName="RCMP_FILENUM"><![CDATA[]]></field>
+
+			<field tableName="CCM_MASTER" fieldName="INCIDENT_DATE"><![CDATA[]]></field>
+			<field tableName="CCM_MASTER" fieldName="INCIDENT_TIME"><![CDATA[]]></field>
+
+			<field tableName="CCM_MASTER" fieldName="CASE_CITY"><![CDATA[]]></field>
+			<field tableName="CCM_MASTER" fieldName="CASE_PROV"><![CDATA[]]></field>
+        </fields>
+        <children>
+            <childHeader tableName="CCM_DETAIL">
+                <childRecord tableName="CCM_DETAIL" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_DETAIL" fieldName="LNAME"><![CDATA[]]></field>
+                        <field tableName="CCM_DETAIL" fieldName="FNAME"><![CDATA[]]></field>
+						            <field tableName="CCM_DETAIL" fieldName="CONTACT_DOB"><![CDATA[]]></field>
+                        <field tableName="CCM_DETAIL" fieldName="ADDR"><![CDATA[]]></field>
+                        <field tableName="CCM_DETAIL" fieldName="CITY"><![CDATA[]]></field>
+                        <field tableName="CCM_DETAIL" fieldName="PROV"><![CDATA[]]></field>
+                        <field tableName="CCM_DETAIL" fieldName="P_CODE"><![CDATA[]]></field>
+						<field tableName="CCM_DETAIL" fieldName="COUNTRY"><![CDATA[]]></field>
+						<field tableName="CCM_DETAIL" fieldName="TEL1"><![CDATA[]]></field>
+						<field tableName="CCM_DETAIL" fieldName="EMAIL"><![CDATA[]]></field>
+						<field tableName="CCM_DETAIL" fieldName="PREF_LANG"><![CDATA[]]></field>
+						<!-- <field tableName="CCM_DETAIL" fieldName="CONTACT_NOTES"><![CDATA[]]></field> -->
+						<field tableName="CCM_DETAIL" fieldName="CONTACT_METHOD"><![CDATA[]]></field>
+
+						<!-- MASTER_DETAIL-->
+						<field tableName="CCM_DETAIL" fieldName="COMPLAINANT_INCIDENT_INVOLVEMENT"><![CDATA[]]></field>
+                        <!-- <field tableName="CCM_DETAIL" fieldName="COMPLAINANT_RCMP_FILENUM"><![CDATA[]]></field> -->
+                        <field tableName="CCM_DETAIL" fieldName="COMPLAINANT_RCMP_FORM"><![CDATA[]]></field>
+                        <!--<field tableName="CCM_DETAIL" fieldName="COMPLAINANT_LOCATION"><![CDATA[]]></field>-->
+                        <field tableName="CCM_DETAIL" fieldName="COMPLAINANT_RCMP_RESOLUTION"><![CDATA[]]></field>
+                        <!-- <field tableName="CCM_DETAIL" fieldName="COMPLAINANT_ADVOCATE"><![CDATA[]]></field> -->
+                       <!-- <field tableName="CCM_DETAIL" fieldName="COMPLAINANT_THIRD_PARTY"><![CDATA[]]></field> -->
+
+					</fields>
+                </childRecord>
+			</childHeader>
+
+
+            <childHeader tableName="CCM_COMMENT">
+                <childRecord tableName="CCM_COMMENT" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_COMMENT" fieldName="ENTEREDBY"><![CDATA[ccmEnvoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="USERID"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="TEXTDATA" nodeFilter="witness"><![CDATA[]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="NOTE_TYPE"><![CDATA[WITNESS-TÉMOIN]]></field>
+					</fields>
+                </childRecord>
+            </childHeader>
+			<childHeader tableName="CCM_COMMENT">
+                <childRecord tableName="CCM_COMMENT" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_COMMENT" fieldName="ENTEREDBY"><![CDATA[ccmEnvoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="USERID"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="TEXTDATA" nodeFilter="officer"><![CDATA[]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="NOTE_TYPE"><![CDATA[RCMP-GRC]]></field>
+					</fields>
+                </childRecord>
+            </childHeader>
+			<childHeader tableName="CCM_COMMENT">
+                <childRecord tableName="CCM_COMMENT" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_COMMENT" fieldName="ENTEREDBY"><![CDATA[ccmEnvoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="USERID"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="TEXTDATA" nodeFilter="advocate"><![CDATA[]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="NOTE_TYPE"><![CDATA[ADVOCATE-DÉFENSEUR]]></field>
+					</fields>
+                </childRecord>
+            </childHeader>
+			<childHeader tableName="CCM_COMMENT">
+                <childRecord tableName="CCM_COMMENT" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_COMMENT" fieldName="ENTEREDBY"><![CDATA[ccmEnvoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="USERID"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="TEXTDATA" nodeFilter="circumstances"><![CDATA[]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="NOTE_TYPE"><![CDATA[DETAILS-DÉTAILS]]></field>
+					</fields>
+                </childRecord>
+            </childHeader>
+			<childHeader tableName="CCM_COMMENT">
+                <childRecord tableName="CCM_COMMENT" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_COMMENT" fieldName="ENTEREDBY"><![CDATA[ccmEnvoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="USERID"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="TEXTDATA" nodeFilter="general"><![CDATA[]]></field>
+                        <field tableName="CCM_COMMENT" fieldName="NOTE_TYPE"><![CDATA[GENERAL-GÉNÉRAL]]></field>
+					</fields>
+                </childRecord>
+            </childHeader>
+            <childHeader tableName="CCM_ROUTING">
+                <childRecord tableName="CCM_ROUTING" recordKey="" nodeType="1">
+                    <fields>
+                        <field tableName="CCM_ROUTING" fieldName="ASGNTO"><![CDATA[NIO-BNRP IO-ARP]]></field>
+						<!--<field tableName="CCM_ROUTING" fieldName="ROUTING_TYPE"><![CDATA[INT-RÉC]]></field>	-->
+						<field tableName="CCM_ROUTING" fieldName="TASK"><![CDATA[Intake - Review new correspondence / Réception - Examiner les nouvelles pièces de correspondance]]></field>
+                        <!--<field tableName="CCM_ROUTING" fieldName="TASK"><![CDATA[Review new Intake - Nouvelle réception à examiner]]></field> -->
+                        <!--<field tableName="CCM_ROUTING" fieldName="ASGNDATE"><![CDATA[]]></field>-->
+                        <!--<field tableName="CCM_ROUTING" fieldName="BF"><![CDATA[]]></field>-->
+                        <field tableName="CCM_ROUTING" fieldName="ASGNBY"><![CDATA[svc_envoy]]></field>
+                        <field tableName="CCM_ROUTING" fieldName="RMODBY"><![CDATA[svc_envoy]]></field>
+                        <!--<field tableName="CCM_ROUTING" fieldName="RMODDATE"><![CDATA[]]></field>-->
+					</fields>
+                </childRecord>
+            </childHeader>
+        </children>
+    </master>
+</record>
