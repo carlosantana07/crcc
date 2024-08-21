@@ -18,10 +18,161 @@ public function getFormId()
 public function buildForm(array $form, FormStateInterface $form_state)
 {
   //========================================================
+  //translation
+
+  $languageEnglish = 'English';
+  $languageFrench = 'French';
+  $selectboxtranslate = 'Please Select';
+  $selectboxtranslateAccident = 'Please Select';
+  $selectboxtranslatefiledComplaint = 'Please Select';
+  $selectboxtranslatesignedAgreement = 'Please Select';
+  $selectboxtranslatepreferredLanguage= 'Please Select';
+  $selectboxtranslatepreferredCommunication = 'Please Select';
+  $email = 'E-mail';
+  $phone = 'Phone';
+  $mail = 'Mail';
+
+  $famillyname= 'Family Name (Required)';
+  $givenname= 'Given Name (Required)';
+  $dateofbirth = 'Date of Birth';
+  $street = 'Street Address or Post Office Box (Required)';
+  $city = 'City (Required)';
+  $proving = 'Province (Canada) (Required)';
+  $postalcode = 'Postal Code / ZIP Code (Required)';
+  $country = 'Country (Required)';
+  $telephone = 'Telephone number where you can be reached (999-999-9999) (Required)';
+  $emailadress = 'E-mail Address (yourname@domain.com)';
+
+
+  $Title_info= ' <div class="row">
+<div class="col-md-8">
+<!--<div class="alert alert-warning">
+<h2>Service Interruption </h2>
+   <p>The Complaint Form will be unavailable on Tuesday, May 14, from 6 p.m. to 8 p.m. (ET) due to system maintenance.</p>
+</div>-->
+<div class="alert alert-info">
+
+<p>The Complaint Form along with all other relevant documentation will be shared with the <abbr title="Royal Canadian Mounted Police">RCMP</abbr> for investigation pursuant to <a href="https://laws-lois.justice.gc.ca/eng/acts/r-10/page-9.html#422053">subsection 45.53(10)  of the <abbr title="Royal Canadian Mounted Police">RCMP</abbr> Act.</a> Accordingly, a RCMP complaint investigator may contact you to provide a statement.</p>
+<p class="mrgn-lft-md"> The CRCC has the discretion to refuse certain complaints. To learn more, click <a href="/en/discretion-refuse-deal-complaint-policy">here</a>.</p>
+</div>
+  <!-- <h2 class="mrgn-tp-0">Complaint  Checklist</h2>
+
+
+  <p><strong>Does  your complaint concern:</strong> </p>
+ <ul class="fa-ul">
+        <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> the on-duty conduct of an  RCMP officer? <p class="mrgn-bttm-0"><strong>and</strong> </p></li>
+   <li><span class="fa fa-li fa-check text-success"></span> an incident that occurred within the last 12 months? </li>
+ </ul>
+ <p><strong>Are  you:</strong></p>
+  <ul class="fa-ul">
+        <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> directly involved in the  incident? <p class="mrgn-bttm-0"><strong>or</strong></p></li>
+   <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> a witness? <p class="mrgn-bttm-0"><strong>or</strong></p></li>
+   <li><span class="fa fa-li fa-check text-success"></span> authorized to act on behalf  of someone who was? </li>
+</ul>
+-->
+
+ </div>
+<section class="col-md-4">
+    <div class="panel panel-danger">
+      <div class="panel-heading"><span class="glyphicon glyphicon-flag"></span> <strong>RCMP Members</strong></div>
+      <ul class="list-unstyled mrgn-tp-md">
+<li class="mrgn-lft-md megn-tp-md">If you are an RCMP member assisting a member of the public with the filing of their public complaint, please click <a href="/en/make-complaint-rcmp-use-only"><strong>here</strong></a>.</li>
+
+
+
+</ul>
+    </div>
+
+  </section>
+</div>';
+
+
+
+  $lang = $_SERVER['REQUEST_URI'];
+
+
+
+
+
+  if(strcmp( $_SERVER['REQUEST_URI'],"/en/make-complaint-form")==0) {
+    $languageEnglish = 'Anglais';
+  $languageFrench = 'Français';
+  $email = 'Courriel';
+  $phone = 'Téléphone';
+  $mail = 'Courrier';
+  $selectboxtranslateAccident= 'Veuillez choisir';
+  $selectboxtranslatefiledComplaint= 'Veuillez choisir';
+  $selectboxtranslatesignedAgreement= 'Veuillez choisir';
+  $selectboxtranslate = 'Veuillez choisir';
+  $selectboxtranslatepreferredLanguage= 'Veuillez choisir';
+  $selectboxtranslatepreferredCommunication = 'Veuillez choisir';
+
+
+  $famillyname= 'Nom de famille (obligatoire)';
+  $givenname= 'Prénom (obligatoire)';
+  $dateofbirth = 'Date de naissance';
+  $street = 'Adresse municipale ou casier postal (obligatoire)';
+  $city = 'Ville (obligatoire)';
+  $proving = 'Province (Canada) (obligatoire)';
+  $postalcode = 'Code postal / ZIP (obligatoire)';
+  $country = 'Pays (obligatoire)';
+  $telephone = 'Numéro de téléphone où l&#39;on peut vous joindre (999-999-9999) (obligatoire)';
+  $emailadress = 'Adresse de courriel (votrenom@domaine.com)';
+
+
+  $Title_info = '
+<div class="row">
+<div class="col-md-8">
+<!--<div class="alert alert-warning">
+<h2>Interruption de service </h2>
+   <p>Le formulaire de plainte en ligne ne sera pas accessible le mardi 14 mai, de 18 h à 20 h (HE) en raison de l’entretien du système.</p>
+</div>-->
+<div class="alert alert-info">
+<p>Le Formulaire de plainte et tous les documents pertinents seront acheminés à la GRC pour une enquête en vertu du <a href="https://laws-lois.justice.gc.ca/fra/lois/R-10/page-9.html#412153">paragraphe 45.53(10) de la <em>Loi sur la GRC</em></a>. Par conséquent, un enquêteur de la GRC pourrait vous demander de donner une déclaration. </p>
+<p class="mrgn-lft-md">La CCETP a le pouvoir discrétionnaire de refuser d&#39;accepter certaines plaintes. Pour en savoir plus, cliquez <a href="/fr/politique-sur-le-pouvoir-discretionnaire-de-refuser-dexaminer-une-plainte">ici</a>.</p>
+
+</div>
+  <!-- <h2 class="mrgn-tp-0">Aide-mémoire pour le dépôt d&#39;une plainte</h2>
+
+
+  <p><strong>Votre plainte vise-t-elle&nbsp;:</strong> </p>
+ <ul class="fa-ul">
+        <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> la conduite d&#39;un membre de la GRC en service? <p class="mrgn-bttm-0"><strong>et</strong> </p></li>
+   <li><span class="fa fa-li fa-check text-success"></span> un incident s&#39;étant produit au cours des 12 derniers mois? </li>
+ </ul>
+ <p><strong>Êtes-vous&nbsp;:</strong></p>
+  <ul class="fa-ul">
+        <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> directement lié(e) à l&#39;incident? <p class="mrgn-bttm-0"><strong>ou</strong></p></li>
+   <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> un témoin?<p class="mrgn-bttm-0"><strong>ou</strong></p></li>
+   <li><span class="fa fa-li fa-check text-success"></span> autorisé(e) à agir au nom d&#39;une personne qui l&#39;est? </li>
+</ul>-->
+
+
+ </div>
+<section class="col-md-4">
+    <div class="panel panel-danger">
+      <div class="panel-heading"><span class="glyphicon glyphicon-flag"></span> <strong>Membre de la GRC</strong></div>
+      <ul class="list-unstyled mrgn-tp-md">
+<li class="mrgn-lft-md megn-tp-md">Si vous êtes un membre de la GRC qui aidez un membre du public à formuler une plainte, veuillez cliquer  <a href="/fr/depot-dune-plainte-reserve-lusage-de-la-grc"><strong>ici</strong></a>.</li>
+
+
+
+</ul>
+    </div>
+
+  </section>
+</div>';
+
+}
+
+
+//===============================================================
+
+
   //VARIABLES
   //array of option for the province selectors
   $provinces = [
-    '' => t('Please Select'),
+    '' => t($selectboxtranslate),
     'AB'=> $this->t('AB'),
     'BC'=> $this->t('BC'),
     'YK'=> $this->t('YK'),
@@ -38,34 +189,36 @@ public function buildForm(array $form, FormStateInterface $form_state)
     'N/A'=> $this->t('N/A')
   ];
 
+
+
   // Preferred Language of Correspondence options
   $preferredLanguage = [
-    '' => t('Please Select'),
-    'ENGLISH-ANGLAIS' => t('English'),
-    'FRENCH-FRAN&#199;AIS' => t('French'),
+    '' => t($selectboxtranslatepreferredLanguage),
+    'ENGLISH-ANGLAIS' => t($languageEnglish),
+    'FRENCH-FRAN&#199;AIS' => t($languageFrench),
   ];
   // Preferred method of communication options
   $preferredCommunication = [
-    '' => t('Please Select'),
-    'EMAIL-COURRIEL' => t('E-mail'),
-    'TELEPHONE-TÉLÉPHONE' => t('Phone'),
-    'LETTER-LETTRE' => t('Mail')
+    '' => t($selectboxtranslatepreferredCommunication),
+    'EMAIL-COURRIEL' => t($email),
+    'TELEPHONE-TÉLÉPHONE' => t($phone),
+    'LETTER-LETTRE' => t($mail)
   ];
   //involved in accident options
   $accident= [
-    '' => t('Please Select'),
+    '' => t($selectboxtranslateAccident),
     'NO-NON' => t('No'),
     'YES-OUI' => t('Yes')
   ];
   //filed complaint options
   $filedComplaint= [
-    '' => t('Please Select'),
+    '' => t($selectboxtranslatefiledComplaint),
     'NO-NON' => t('No'),
     'YES-OUI' => t('Yes')
   ];
   //signed agreement options
   $signedAgreement= [
-    '' => t('Please Select'),
+    '' => t($selectboxtranslatesignedAgreement),
     'NO-NON' => t('No'),
     'YES-OUI' => t('Yes')
   ];
@@ -173,47 +326,9 @@ public function buildForm(array $form, FormStateInterface $form_state)
 //========================================================
   $form['Title_info'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <div class="alert alert-info">
-        <p>The Complaint Form along with all other relevant documentation will be shared with the <abbr title="Royal Canadian Mounted Police">RCMP</abbr> for investigation pursuant to <a href="https://laws-lois.justice.gc.ca/eng/acts/r-10/page-9.html#422053">subsection 45.53(10)  of the <abbr title="Royal Canadian Mounted Police">RCMP</abbr> Act.</a> Accordingly, a RCMP complaint investigator may contact you to provide a statement.</p>
-        <p class="mrgn-lft-md"> The CRCC has the discretion to refuse certain complaints. To learn more, click <a href="/en/discretion-refuse-deal-complaint-policy">here</a>.</p>
-      </div>'),
+    '#markup' => t($Title_info),
     ];
 
-
-//========================================================
-//Complaint Checklist
-   $form['complaint_checklist'] = [
-    '#type' => 'markup',
-    '#markup' => t('
-      <div class="row">
-        <div class="well well-sm col-md-8">
-          <h2 class="mrgn-tp-0">Complaint  Checklist</h2>
-          <p><strong>Does  your complaint concern:</strong> </p>
-          <ul class="fa-ul">
-            <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> the on-duty conduct of an  RCMP officer? <p class="mrgn-bttm-0"><strong>and</strong> </p></li>
-            <li><span class="fa fa-li fa-check text-success"></span> an incident that occurred within the last 12 months? </li>
-          </ul>
-          <p><strong>Are  you:</strong></p>
-          <ul class="fa-ul">
-            <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> directly involved in the  incident? <p class="mrgn-bttm-0"><strong>or</strong></p></li>
-            <li class="mrgn-bttm-0"><span class="fa fa-li fa-check text-success"></span> a witness? <p class="mrgn-bttm-0"><strong>or</strong></p></li>
-            <li><span class="fa fa-li fa-check text-success"></span> authorized to act on behalf  of someone who was? </li>
-          </ul>
-        </div>
-        <section class="col-md-4">
-          <div class="panel panel-danger">
-            <div class="panel-heading"><span class="glyphicon glyphicon-flag"></span> <strong>RCMP Members</strong></div>
-              <ul class="list-unstyled mrgn-tp-md">
-                <li class="mrgn-lft-md megn-tp-md">If you are an RCMP member assisting a member of the public with the filing of their public complaint, please click <a href="/en/make-complaint-rcmp-use-only"><strong>here</strong></a>.</li>
-              </ul>
-            </div>
-        </section>
-      </div>
-      <div class="clearfit"></div>
-      <div class="wb-frmvld wb-fdbck nojs-hide">'
-    ),
-  ];
   //========================================================
   //user personnal information
 
@@ -221,7 +336,7 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['complainant_name_family'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_name_family',
-    '#title' => $this->t('Family Name (Required)'),
+    '#title' => $this->t($famillyname),
 
 
   ];
@@ -229,59 +344,59 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['complainant_name_given']= [
     '#type' => 'textfield',
     '#name'=> 'complainant_name_given',
-    '#title' => $this->t('Given Name (Required)'),
+    '#title' => $this->t($givenname),
 
   ];
   //user date of birth chooser
   $form['complainant_date_birth'] = [
     '#type' => 'date', //'#type' => 'date',
     '#name'=> 'complainant_date_birth',
-    '#title' => $this->t('Date of Birth'),
+    '#title' => $this->t($dateofbirth),
   ];
 
   //user mailling address
   $form['complainant_address_mailing_street_nbr'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_address_mailing_street_nbr',
-    '#title' => $this->t('Street Address or Post Office Box (Required)'),
+    '#title' => $this->t($street),
    // '#required' => TRUE,
   ];
   //user city of residence
   $form['complainant_address_mailing_city'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_address_mailing_city',
-    '#title' => $this->t('City (Required)'),
+    '#title' => $this->t($city),
   ];
   //user province of residence
   $form['complainant_address_mailing_province'] = [
     '#type' => 'select',
     '#name'=> 'complainant_address_mailing_province',
-    '#title' => $this->t('Province (Canada) (Required)'),
+    '#title' => $this->t($proving),
     '#options' => $provinces,
   ];
   //user postal code
   $form['complainant_address_mailing_postalcode'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_address_mailing_postalcode',
-    '#title' => $this->t('Postal Code / ZIP Code (Required)'),
+    '#title' => $this->t($postalcode),
   ];
   //user country of residence
   $form['complainant_address_mailing_country'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_address_mailing_country',
-    '#title' => $this->t('Country (Required)'),
+    '#title' => $this->t("$country"),
   ];
   //user telephone
   $form['complainant_phone_home'] = [
     '#type' => 'tel',
     '#name'=> 'complainant_phone_home',
-    '#title' => $this->t('Telephone number where you can be reached (999-999-9999) (Required)'),
+    '#title' => $this->t($telephone),
   ];
   //user email address
   $form['complainant_email'] = [
     '#type' => 'textfield',
     '#name'=> 'complainant_email',
-    '#title' => $this->t('E-mail Address (yourname@domain.com)'),
+    '#title' => $this->t($emailadress),
   ];
 
 
