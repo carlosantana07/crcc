@@ -866,7 +866,7 @@ $buttontrans = 'Soumettre la demande';
         header('Location:/en/failed-submission');
         exit;
       } else {
-        if(strcmp( $_SERVER['REQUEST_URI'],"/fr/request-review-form")==0) {
+        if(str_contains( $_SERVER['REQUEST_URI'],"/fr/request-review-form")==0) {
           header('Location:/fr/crccreviewthankyou?result=' . $result);
       }else {
         header('Location:/en/crccreviewthankyou?result=' . $result);
