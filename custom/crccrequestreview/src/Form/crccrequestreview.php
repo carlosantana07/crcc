@@ -172,10 +172,8 @@ class crccrequestreview extends FormBase
       '23:45 ' => t('23:45 ')
     ];
 
-    //========================================================
-    $form['Title_info'] = [
-      '#type' => 'markup',
-      '#markup' => t('
+
+    $Title_infotrans = '
       <div class="row">
       <div class="col-md-5 pull-right">
          <div class="well mrgn-bttm-md">
@@ -211,184 +209,26 @@ class crccrequestreview extends FormBase
   <div class="panel-body">
 <div class="row">
 <div class="col-md-5">
-    '),
-    ];
-    //========================================================
+    ';
 
-    //========================================================
-    //user personnal information
-
-    //user firstname
-    $form['complainant_name_given'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_name_given',
-      '#title' => $this->t('Given Name (Required)'),
-      '#required' => TRUE,
-    ];
-    $form['Title_given_name'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div>
-      <div class="col-md-5" <div="">
-    '),
-    ];
-    //user lastname
-    $form['complainant_name_family'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_name_family',
-      '#title' => $this->t('Family Name (Required)'),
-      '#required' => TRUE,
-    ];
-
-    $form['Title_family_name'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div></div>
-      <div class="clearfix"></div>
-      <div class="row">
-      <div class="col-md-5">
-    '),
-    ];
-    //user mailling address
-    $form['complainant_address_mailing_street_nbr'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_address_mailing_street_nbr',
-      '#title' => $this->t('Street Address (Required)'),
-      '#required' => TRUE,
-    ];
-    $form['Title_street_nbr'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div>
-      <div class="col-md-5" <div="">
-    '),
-    ];
-
-    //user city of residence
-    $form['complainant_address_mailing_city'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_address_mailing_city',
-      '#title' => $this->t('City (Required)'),
-      '#required' => TRUE,
-    ];
-
-    $form['Title_city'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div></div>
-      <div class="clearfix"></div>
-      <div class="row">
-      <div class="col-md-5" <div="">
-    '),
-    ];
-    //user province of residence
-    $form['complainant_address_mailing_province'] = [
-      '#type' => 'select',
-      '#name' => 'complainant_address_mailing_province',
-      '#title' => $this->t('Province (Canada) (Required)'),
-      '#options' => $provinces,
-      '#required' => TRUE,
-    ];
-    $form['Title_province'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div>
-      <div class="col-md-5" <div="">
-    '),
-    ];
-    //user postal code
-    $form['complainant_address_mailing_postalcode'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_address_mailing_postalcode',
-      '#title' => $this->t('Postal Code / ZIP Code (Required)'),
-      '#required' => TRUE,
-    ];
-    $form['Title_postalcode'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div> </div>
-      <div class="clearfix"></div>
-    '),
-    ];
-    //user country of residence
-    $form['complainant_address_mailing_country'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_address_mailing_country',
-      '#title' => $this->t('Country (Required)'),
-      '#required' => TRUE,
-    ];
-    $form['Title_country'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      <div class="row">
-      <div class="col-md-5" <div="">
-    '),
-    ];
-    //user telephone
-    $form['complainant_phone_home'] = [
-      '#type' => 'tel',
-      '#name' => 'complainant_phone_home',
-      '#title' => $this->t('Telephone number where you can be reached (999-999-9999) (Required)'),
-      '#required' => TRUE,
-    ];
-    $form['Title_phone_home'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div>
-      <div class="col-md-5" <div="">
-    '),
-    ];
-    //user email address
-    $form['complainant_email'] = [
-      '#type' => 'textfield',
-      '#name' => 'complainant_email',
-      '#title' => $this->t('E-mail Address (yourname@domain.com)'),
-    ];
-    $form['Title_email'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div></div>
-      <div class="clearfix"></div>
-      </div>
-      </section>
-    '),
-    ];
-
-
-    //========================================================
-    //FILES
-    //user date of birth label
-    $form['file_details'] = [
-      '#type' => 'markup',
-      '#markup' => t(' <section class="panel panel-info hght-inhrt">
+$complainant_name_giventrans = 'Given Name (Required)';
+$complainant_name_familytrans = 'Family Name (Required)';
+$complainant_address_mailing_street_nbrtrans = 'Street Address (Required)';
+$complainant_address_mailing_citytrans = 'City (Required)';
+$complainant_address_mailing_provincetrans = 'Province (Canada) (Required)';
+$complainant_address_mailing_postalcodetrans = 'Postal Code / ZIP Code (Required)';
+$complainant_address_mailing_countrytrans = 'Country (Required)';
+$complainant_phone_hometrans = 'Telephone number where you can be reached (999-999-9999) (Required)';
+$complainant_emailtrans = 'E-mail Address (yourname@domain.com)';
+$file_detailstrans = '<section class="panel panel-info hght-inhrt">
 
       <div class="panel-heading"><h2 class="panel-title large">File Details</h2></div>
       <div class="panel-body">
       <div class="row">
-      <div class="col-md-5">
-      '),
-    ];
-    $form['rcmp_file_number'] = [
-      '#type' => 'textfield',
-      '#name' => 'rcmp_file_number',
-      '#title' => $this->t('RCMP File Number (If known)'),
-    ];
-    $form['Title_file_number'] = [
-      '#type' => 'markup',
-      '#markup' => t('
-      </div> <div class="col-md-5">
-    '),
-    ];
-    $form['commission_file_number'] = [
-      '#type' => 'textfield',
-      '#name' => 'commission_file_number',
-      '#title' => $this->t('Commission File Number (If known)'),
-      //'#required' => TRUE,
-    ];
-
-    $form['file_closingDiv'] = [
-      '#type' => 'markup',
-      '#markup' => t('
+      <div class="col-md-5">';
+$rcmp_file_numbertrans = 'RCMP File Number (If known)';
+$commission_file_numbertrans = 'Commission File Number (If known)';
+$file_closingDivtrans = '
       </div>
       <div class="col-md-4">
       <p class="well small text-info mrgn-tp-md"><strong>Please Note:</strong> The RCMP and CRCC file numbers are located in the top right-hand corner of the RCMP &#39; s report.</p>
@@ -405,20 +245,10 @@ class crccrequestreview extends FormBase
     <li>Do you have additional evidence? If  you answered yes, describe the evidence you would like the Commission to  review.   </li>
 
 
-	  </ol>'),
-    ];
+	  </ol>';
 
-
-    $form['file_text'] = [
-      '#type' => 'textarea',
-      '#name' => 'file_text',
-      '#title' => $this->t('* Allowable limit: 7000 characters'),
-      '#required' => TRUE,
-    ];
-
-    $form['file_last_Definition'] = [
-      '#type' => 'markup',
-      '#markup' => t('</div>
+$file_texttrans = '* Allowable limit: 7000 characters';
+$file_last_Definitiontrans = '</div>
       <div class="col-md-4 pull-right well well-sm  text-info">
 <p><strong>Did you know?</strong></p>
 <ul class="lst-spcd small">
@@ -437,7 +267,298 @@ class crccrequestreview extends FormBase
 <p> If you need to send additional materials or are unable to  send materials within the 30-day period, please <a href="/en/review-process-frequently-asked-questions#contactus">contact us</a> with details. </p>
 </li>
 </ul></div>
-</div>'),
+</div>';
+$buttontrans = 'Submit request';
+
+
+
+
+    if(strcmp( $_SERVER['REQUEST_URI'],"/fr/request-review-form")==0) {
+
+      $Title_infotrans = '
+      <h1 id="wb-cont">Formulaire de demande d&#39;examen</h1>
+     <div class="row">
+  <div class="col-md-5 pull-right">
+     <div class="well mrgn-bttm-md">
+		 <p><span class="glyphicon glyphicon-question-sign text-primary"></span> Vous avez des questions? La page qui s&#39;intitule <a href="/fr/processus-dexamen-foire-aux-questions">Processus d&#39;examen&nbsp;: Foire aux questions</a> renferme de plus amples renseignements.   </p>
+<p><a href="/pdf/Review-examen_Form-inuk.pdf">cᑐᑦᓯᕋᐅᑦ ᕿᒥᕐᕈᔭᐅᑎᑦᓯᓂᕐᒧᑦ ᑕᑕᑎᒐᖅ</a><br>Formulaire de demande d&#39;examen [PDF] </p>
+<p><a href="/fr/qimirrujaunirmut-atuagait-apiqkutiugajuttut">ᕿᒥᕐᕈᔭᐅᓂᕐᒧᑦ ᐊᑐᐊᒐᐃᑦ: ᐊᐱᖅᑯᑎᐅᒐᔪᑦᑐᑦ</a><br>Processus d&#39;examen : Foire aux questions</p>
+     </div>
+  </div>
+  <div class="mrgn-lft-md mrgn-rght-md">
+<!--<div class="alert alert-warning">
+<h2>Interruption de service </h2>
+   <p>Le formulaire de demande d&#39;examen ne sera pas accessible le mardi 14 mai, de 18 h à 20 h (HE) en raison de l&#39;entretien du système.</p>
+</div>-->
+	  <p>Si vous avez déposé une plainte au sujet de la conduite d&#39;un membre de la GRC et que vous d&#39;êtes pas satisfait(e) de la décision de la GRC concernant votre plainte, vous pouvez présenter une demande d&#39;examen.</p>
+
+<p>Pour demander un examen, vous devez avoir déjà reçu le rapport ou la lettre de décision de la GRC (souvent appelé «&nbsp;<strong>lettre de règlement</strong>&nbsp;» ou «<strong>&nbsp;avis de la décision</strong>&nbsp;»).</p>
+<p>Pour présenter une demande d&#39;examen, veuillez remplir le formulaire suivant.</p>
+
+
+
+  </div>
+</div>
+
+    <p class="well text-info"><strong>Remarque :</strong> La  Commission n&#39;examinera que la plainte   originale déposée par le plaignant ou son  représentant. Si vous   souhaitez déposer une nouvelle plainte, veuillez remplir  un <a href="/fr/formulaire-de-plainte-en-ligne">formulaire de plainte</a>.</p>
+    <div class="wb-frmvld wb-fdbck nojs-hide wb-init wb-frmvld-inited" id="wb-auto-1">
+
+  <section class="panel panel-info hght-inhrt">
+
+  <div class="panel-heading"><h2 class="panel-title large">Renseignements personnels</h2></div>
+
+
+  <div class="panel-body">
+<div class="row">
+<div class="col-md-5">
+    ';
+
+$complainant_name_giventrans = 'Prénom (obligatoire)';
+$complainant_name_familytrans = 'Nom (obligatoire)';
+$complainant_address_mailing_street_nbrtrans = 'Adresse municipale (obligatoire)';
+$complainant_address_mailing_citytrans = 'Ville (obligatoire)';
+$complainant_address_mailing_provincetrans = 'Province (Canada) (obligatoire))';
+$complainant_address_mailing_postalcodetrans = 'Code postal / ZIP (obligatoire)';
+$complainant_address_mailing_countrytrans = 'Pays (obligatoire)';
+$complainant_phone_hometrans = 'Numéro de téléphone où l&#39;on peut vous joindre (obligatoire)';
+$complainant_emailtrans = 'Adresse de courriel';
+$file_detailstrans = '<section class="panel panel-info hght-inhrt">
+
+      <div class="panel-heading"><h2 class="panel-title large">Détails du dossier</h2></div>
+      <div class="panel-body">
+      <div class="row">
+      <div class="col-md-5">';
+$rcmp_file_numbertrans = 'Numéro de dossier de la GRC (si vous le connaissez)';
+$commission_file_numbertrans = 'Numéro de dossier de la Commission (si vous le connaissez)';
+$file_closingDivtrans = '
+      </div>
+      <div class="col-md-4">
+      <p class="well small text-info"><strong>Remarque&nbsp;:</strong>  Les numéros de dossier de la GRC et de la CCETP se trouvent dans le coin supérieur droit du rapport de la GRC.</p>
+      </div>
+ </div><div class="clearfix"></div>
+ <div class="row">
+ <div class="col-md-8">
+ <p><strong>La Commission n&#39;examinera que les conclusions que vous énoncerez dans l&#39;encadré ci-dessous. Vous devez inclure les renseignements suivants (obligatoire)&nbsp;: </strong></p>
+ <ol class="lst-spcd">
+    <li>Le rapport de la GRC comprend une ou plusieurs allégations formulées d&#39;après votre plainte du public, ainsi que les conclusions de la GRC pour ces allégations. Veuillez énumérer les conclusions dont vous n&#39;êtes pas satisfait(e). Soyez le plus précis possible.    </li>
+
+		  <li>Décrivez les résultats auxquels vous vous attendez du processus d&#39;examen.</li>
+
+
+		  <li>Avez-vous de nouvelles preuves? Si vous avez répondu oui, veuillez décrire les preuves que vous aimeriez que la Commission examine </li>
+
+	  </ol>';
+
+$file_texttrans = '* Nombre maximum de caractères autorisés : 7 000';
+$file_last_Definitiontrans = '</div>
+      <div class="col-md-4 pull-right well well-sm  text-info">
+<p><strong>Le saviez-vous?</strong></p>
+<ul class="lst-spcd small">
+	 <li>Le rôle de la Commission se limite à proposer des mesures correctives pour améliorer la qualité des services de police.</li><li> La CCETP ne fait <strong>AUCUNE</strong> des recommandations suivantes&nbsp;:
+		<ul>
+			<li>Paiement d&#39;une somme d&#39;argent à titre de récompense pour inconduite de la GRC</li>
+    <li>Inculpation pénale ou réglementaire d&#39;une personne</li>
+    <li>Retrait, pardon ou interférence de toute autre manière avec des accusations ou des condamnations pénales ou réglementaires en cours</li>
+    <li>Renvoi ou rétrogradation des membres de la GRC, ou imposition de mesures disciplinaires spécifiques</li>
+
+	   </ul>
+	  </li>
+	  <li><p>Toute information que vous avez déjà fournie à la GRC nous sera communiquée. Nous avons également accès au dossier complet de la GRC concernant votre cas. Cela inclut tout matériel en possession ou sous le contrôle de la GRC qui est pertinent pour l&#39;examen de votre dossier.</p> <p>Vous n&#39;avez pas besoin de renvoyer ces documents. Vous avez 30 jours à compter de la date de votre demande d&#39;examen pour nous fournir toute information additionnelle. Nous n&#39;accepterons qu&#39;un maximum de 50 pages de documents écrits et un maximum de 60 minutes de documents audio ou vidéo.</p><p> Si vous devez envoyer des documents supplémentaires ou que vous ne pouvez pas respecter l&#39;échéance de 30 jours pour ce faire, veuillez <a href="/fr/processus-dexamen-foire-aux-questions#commNous">nous contacter</a> et nous fournir plus de détails. </p>
+	  </li>
+	   </ul></div>
+</div>';
+
+$buttontrans = 'Soumettre la demande';
+    }
+
+    //========================================================
+    $form['Title_info'] = [
+      '#type' => 'markup',
+      '#markup' => t($Title_infotrans),
+    ];
+    //========================================================
+
+    //========================================================
+    //user personnal information
+
+    //user firstname
+    $form['complainant_name_given'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_name_given',
+      '#title' => $this->t($complainant_name_giventrans),
+      '#required' => TRUE,
+    ];
+    $form['Title_given_name'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div>
+      <div class="col-md-5" <div="">
+    '),
+    ];
+    //user lastname
+    $form['complainant_name_family'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_name_family',
+      '#title' => $this->t($complainant_name_familytrans),
+      '#required' => TRUE,
+    ];
+
+    $form['Title_family_name'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div></div>
+      <div class="clearfix"></div>
+      <div class="row">
+      <div class="col-md-5">
+    '),
+    ];
+    //user mailling address
+    $form['complainant_address_mailing_street_nbr'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_address_mailing_street_nbr',
+      '#title' => $this->t($complainant_address_mailing_street_nbrtrans),
+      '#required' => TRUE,
+    ];
+    $form['Title_street_nbr'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div>
+      <div class="col-md-5" <div="">
+    '),
+    ];
+
+    //user city of residence
+    $form['complainant_address_mailing_city'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_address_mailing_city',
+      '#title' => $this->t($complainant_address_mailing_citytrans),
+      '#required' => TRUE,
+    ];
+
+    $form['Title_city'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div></div>
+      <div class="clearfix"></div>
+      <div class="row">
+      <div class="col-md-5" <div="">
+    '),
+    ];
+    //user province of residence
+    $form['complainant_address_mailing_province'] = [
+      '#type' => 'select',
+      '#name' => 'complainant_address_mailing_province',
+      '#title' => $this->t($complainant_address_mailing_provincetrans),
+      '#options' => $provinces,
+      '#required' => TRUE,
+    ];
+    $form['Title_province'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div>
+      <div class="col-md-5" <div="">
+    '),
+    ];
+    //user postal code
+    $form['complainant_address_mailing_postalcode'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_address_mailing_postalcode',
+      '#title' => $this->t($complainant_address_mailing_postalcodetrans),
+      '#required' => TRUE,
+    ];
+    $form['Title_postalcode'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div> </div>
+      <div class="clearfix"></div>
+    '),
+    ];
+    //user country of residence
+    $form['complainant_address_mailing_country'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_address_mailing_country',
+      '#title' => $this->t($complainant_address_mailing_countrytrans),
+      '#required' => TRUE,
+    ];
+    $form['Title_country'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      <div class="row">
+      <div class="col-md-5" <div="">
+    '),
+    ];
+    //user telephone
+    $form['complainant_phone_home'] = [
+      '#type' => 'tel',
+      '#name' => 'complainant_phone_home',
+      '#title' => $this->t($complainant_phone_hometrans),
+      '#required' => TRUE,
+    ];
+    $form['Title_phone_home'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div>
+      <div class="col-md-5" <div="">
+    '),
+    ];
+    //user email address
+    $form['complainant_email'] = [
+      '#type' => 'textfield',
+      '#name' => 'complainant_email',
+      '#title' => $this->t($complainant_emailtrans),
+    ];
+    $form['Title_email'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div></div>
+      <div class="clearfix"></div>
+      </div>
+      </section>
+    '),
+    ];
+
+
+    //========================================================
+    //FILES
+    //user date of birth label
+    $form['file_details'] = [
+      '#type' => 'markup',
+      '#markup' => t($file_detailstrans),
+    ];
+    $form['rcmp_file_number'] = [
+      '#type' => 'textfield',
+      '#name' => 'rcmp_file_number',
+      '#title' => $this->t($rcmp_file_numbertrans),
+    ];
+    $form['Title_file_number'] = [
+      '#type' => 'markup',
+      '#markup' => t('
+      </div> <div class="col-md-5">
+    '),
+    ];
+    $form['commission_file_number'] = [
+      '#type' => 'textfield',
+      '#name' => 'commission_file_number',
+      '#title' => $this->t($commission_file_numbertrans),
+      //'#required' => TRUE,
+    ];
+
+    $form['file_closingDiv'] = [
+      '#type' => 'markup',
+      '#markup' => t($file_closingDivtrans),
+    ];
+
+
+    $form['file_text'] = [
+      '#type' => 'textarea',
+      '#name' => 'file_text',
+      '#title' => $this->t($file_texttrans),
+      '#required' => TRUE,
+    ];
+
+    $form['file_last_Definition'] = [
+      '#type' => 'markup',
+      '#markup' => t($file_last_Definitiontrans),
     ];
 
     //========================================================
@@ -578,7 +699,7 @@ class crccrequestreview extends FormBase
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Submit request'),
+      '#value' => $this->t($buttontrans),
       '#button_type' => 'primary',
     ];
     $form['complaint_closingCompleteDiv'] = [
