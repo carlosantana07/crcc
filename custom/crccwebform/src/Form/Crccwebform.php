@@ -1170,7 +1170,7 @@ if($result=='A server exception has been caught: One or more errors occurred.' o
    exit;
  }
  else {
-  if(strcmp( $_SERVER['REQUEST_URI'],"/fr/request-review-form")==0) {
+  if(strcmp( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
     header('Location:/fr/thank-you?result=' .$result);
   }else {
     header('Location:/en/thank-you?result=' .$result);
