@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crccthankyou\Controller;
+namespace Drupal\crccreviewthankyou\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
@@ -15,23 +15,40 @@ class DefaultController extends ControllerBase {
    * @return array
    *   Return Hello string.
    */
-  public function crccthankyou() {
+  public function crccreviewthankyou() {
 
-    $translation = '<h2>Thank you</h2>
-    <p>The Commission has received your online complaint. It will be reviewed to make certain that it meets the requirements of a public complaint under the <em>Royal Canadian Mounted Police Act</em>.</p>
-      <p>In cases where additional information is needed, an intake officer will contact you using the details you provided.</p>
-      <p>Your reference number is <strong>'.$_GET['result'].'</strong></p> ';
 
-      if(strcmp( $_SERVER['REQUEST_URI'],"/thank-you?language=fr")==0) {
-      $translation = '<h2>Merci</h2>
-    <p>La Commission a reçu votre plainte déposée en ligne. Nous l&#39;examinerons afin de nous assurer qu&#39;elle satisfait aux exigences de la <em>Loi sur la Gendarmerie royale du Canada</em>.</p>
-      <p>Si des renseignements supplémentaires, un agent des plaintes communiquera avec vous et se servira des détails que vous nous avez fournis.</p>
-      <p>Voici votre numéro de référence<strong>'.$_GET['result'].'</strong></p> ';
+
+    $lang = $_SERVER['REQUEST_URI'];
+    $translation='<div class="alert alert-success"><p>Thank you for contacting the Commission. Your reference number is <strong>'.$_GET['result'].'</strong></p></div>
+      <div class="row">
+        <div class="col-md-5 pull-right">
+           <div class="well mrgn-bttm-md">
+             <p><span class="glyphicon glyphicon-question-sign text-primary"></span> Do you have questions? More information can be found in the <a href="/en/review-process-frequently-asked-questions">Review Process Frequently Asked Questions (FAQ)</a>. </p>
+      <p><a href="/pdf/Review-examen_Form-inuk.pdf">cᑐᑦᓯᕋᐅᑦ ᕿᒥᕐᕈᔭᐅᑎᑦᓯᓂᕐᒧᑦ ᑕᑕᑎᒐᖅ</a> <br>Request for Review Form [PDF] </p>
+      <p><a href="/en/qimirrujaunirmut-atuagait-apiqkutiugajuttut">ᕿᒥᕐᕈᔭᐅᓂᕐᒧᑦ ᐊᑐᐊᒐᐃᑦ: ᐊᐱᖅᑯᑎᐅᒐᔪᑦᑐᑦ</a> <br>Review Process FAQ</p>
+           </div>
+        </div>
+        <div class="mrgn-lft-md mrgn-rght-md">
+          <p>If you have made a complaint concerning the conduct of an  RCMP member and are not satisfied with the way the RCMP handled your complaint,  you can request a review.</p>
+
+      <p>To request a review, you must have already received the report or decision letter from the RCMP (often called a "<strong>Letter of Disposition</strong>" or a "<strong>Notice of Direction</strong>").</p>
+      <p>If you would like to request a review, please complete  the following form. </p> ';
+
+    if(strcmp( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
+      $translation = '';
     }
+
+
+
+
+
+
 
     return [
       '#type' => 'markup',
-      '#markup' => $this->t($translation),
+      '#markup' => $this->t('')
+      . $translation,
     ];
   }
 
