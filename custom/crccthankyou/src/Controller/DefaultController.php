@@ -26,7 +26,7 @@ class DefaultController extends ControllerBase {
       $translation = '<h2>Merci</h2>
     <p>La Commission a reçu votre plainte déposée en ligne. Nous l&#39;examinerons afin de nous assurer qu&#39;elle satisfait aux exigences de la <em>Loi sur la Gendarmerie royale du Canada</em>.</p>
       <p>Si des renseignements supplémentaires, un agent des plaintes communiquera avec vous et se servira des détails que vous nous avez fournis.</p>
-      <p>Voici votre numéro de référence<strong>'.$_GET['result'].'</strong></p> ';
+      <p>Voici votre numéro de référence<strong> '.$_GET['result'].'</strong></p> ';
     }
 
     return [
