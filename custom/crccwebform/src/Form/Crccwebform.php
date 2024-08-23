@@ -126,7 +126,7 @@ $timeIncident= [
 
 
 
-  $Title_info= ' <div class="row">
+  $Title_info= ' <h1 id="wb-cont">Complaint Form</h1><div class="row">
 <div class="col-md-8">
 <!--<div class="alert alert-warning">
 <h2>Service Interruption </h2>
@@ -282,6 +282,7 @@ $complaint_approval_texttrans = '
 
 $note_acknowledgetrans =  'By clicking this box, you are acknowledging that the information provided is complete and accurate to the best of your knowledge. (Required)';
 $incident_dateofincidenttrans = 'Date of Incident (Required)';
+$submittrans = 'Submit complaint';
 
   $lang = $_SERVER['REQUEST_URI'];
 
@@ -292,6 +293,7 @@ $incident_dateofincidenttrans = 'Date of Incident (Required)';
   if(strcmp( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
 
     $Title_info = '
+    <h1 id="wb-cont">Formulaire de plainte en ligne</h1>
 <div class="row">
 <div class="col-md-8">
 <!--<div class="alert alert-warning">
@@ -434,7 +436,6 @@ $complaint_last_Definitiontrans = '
   <li>une brève explication de la raison pour laquelle vous demandez à ce qu&#39;on vous rappelle  </li>
 </ul>
 <p>Veuillez noter que les tentatives de vous contacter par téléphone pourraient prendre jusqu&#39;à 15 jours ouvrables. Les appels seront faits durant les heures normales d&#39;ouverture, du lundi au vendredi (heure avancée de l&#39;Est), ce qui pourrait retarder l&#39;examen de votre plainte.</p>
-      <textarea class="form-control" id="witness_added_note" name="witness_added_note" rows="5" cols="65" maxlength="3510" size="3510" data-rule-rangelength="[0,3500]"></textarea>
     ';
 
 $complaint_approval_texttrans = '
@@ -447,6 +448,8 @@ $complaint_approval_texttrans = '
         <div class="checkbox-inline">';
 
 $note_acknowledgetrans =  'En cochant cette case, vous reconnaissez que les renseignements fournis sont complets et exacts au meilleur de votre connaissance. (obligatoire)';
+$submittrans = 'Soumettre la plainte';
+
 }
 
 
@@ -942,7 +945,7 @@ $note_acknowledgetrans =  'En cochant cette case, vous reconnaissez que les rens
   $form['actions']['#type'] = 'actions';
   $form['actions']['submit'] = [
     '#type' => 'submit',
-    '#value' => $this->t('Submit complaint'),
+    '#value' => $this->t($submittrans),
     '#button_type' => 'primary',
   ];
   $form['complaint_closingCompleteDiv'] = [
