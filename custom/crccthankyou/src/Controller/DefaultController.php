@@ -22,7 +22,7 @@ class DefaultController extends ControllerBase {
       <p>In cases where additional information is needed, an intake officer will contact you using the details you provided.</p>
       <p>Your reference number is <strong>'.$_GET['result'].'</strong></p> ';
 
-      if(strcmp( $_SERVER['REQUEST_URI'],"/fr/thank-you")==0) {
+      if(str_contains( $_SERVER['REQUEST_URI'],"/fr")) {
       $translation = '<h2>Merci</h2>
     <p>La Commission a reçu votre plainte déposée en ligne. Nous l&#39;examinerons afin de nous assurer qu&#39;elle satisfait aux exigences de la <em>Loi sur la Gendarmerie royale du Canada</em>.</p>
       <p>Si des renseignements supplémentaires, un agent des plaintes communiquera avec vous et se servira des détails que vous nous avez fournis.</p>

@@ -35,7 +35,7 @@ class DefaultController extends ControllerBase {
       <p>To request a review, you must have already received the report or decision letter from the RCMP (often called a "<strong>Letter of Disposition</strong>" or a "<strong>Notice of Direction</strong>").</p>
       <p>If you would like to request a review, please complete  the following form. </p> ';
 
-    if(strcmp( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
+    if(str_contains( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
       $translation = '';
     }
 
