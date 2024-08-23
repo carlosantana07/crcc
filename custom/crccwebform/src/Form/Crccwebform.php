@@ -17,31 +17,113 @@ public function getFormId()
 */
 public function buildForm(array $form, FormStateInterface $form_state)
 {
+
+    //VARIABLES
+
+
+//signed agreement options
+$timeIncident= [
+  '00:00 '=> t('00:00 '),
+  '00:15 '=> t('00:15 '),
+  '00:30 '=> t('00:30 '),
+  '00:45 '=> t('00:45 '),
+  '01:00 '=> t('01:00 '),
+  '01:15 '=> t('01:15 '),
+  '01:30 '=> t('01:30 '),
+  '01:45 '=> t('01:45 '),
+  '02:00 '=> t('02:00 '),
+  '02:15 '=> t('02:15 '),
+  '02:30 '=> t('02:30 '),
+  '02:45 '=> t('02:45 '),
+  '03:00 '=> t('03:00 '),
+  '03:15 '=> t('03:15 '),
+  '03:30 '=> t('03:30 '),
+  '03:45 '=> t('03:45 '),
+  '04:00 '=> t('04:00 '),
+  '04:15 '=> t('04:15 '),
+  '04:30 '=> t('04:30 '),
+  '04:45 '=> t('04:45 '),
+  '05:00 '=> t('05:00 '),
+  '05:15 '=> t('05:15 '),
+  '05:30 '=> t('05:30 '),
+  '05:45 '=> t('05:45 '),
+  '06:00 '=> t('06:00 '),
+  '06:15 '=> t('06:15 '),
+  '06:30 '=> t('06:30 '),
+  '06:45 '=> t('06:45 '),
+  '07:00 '=> t('07:00 '),
+  '07:15 '=> t('07:15 '),
+  '07:30 '=> t('07:30 '),
+  '07:45 '=> t('07:45 '),
+  '08:00 '=> t('08:00 '),
+  '08:15 '=> t('08:15 '),
+  '08:30 '=> t('08:30 '),
+  '08:45 '=> t('08:45 '),
+  '09:00 '=> t('09:00 '),
+  '09:15 '=> t('09:15 '),
+  '09:30 '=> t('09:30 '),
+  '09:45 '=> t('09:45 '),
+  '10:00 '=> t('10:00 '),
+  '10:15 '=> t('10:15 '),
+  '10:30 '=> t('10:30 '),
+  '10:45 '=> t('10:45 '),
+  '11:00 '=> t('11:00 '),
+  '11:15 '=> t('11:15 '),
+  '11:30 '=> t('11:30 '),
+  '11:45 '=> t('11:45 '),
+  '12:00 '=> t('12:00 '),
+  '12:15 '=> t('12:15 '),
+  '12:30 '=> t('12:30 '),
+  '12:45 '=> t('12:45 '),
+  '13:00 '=> t('13:00 '),
+  '13:15 '=> t('13:15 '),
+  '13:30 '=> t('13:30 '),
+  '13:45 '=> t('13:45 '),
+  '14:00 '=> t('14:00 '),
+  '14:15 '=> t('14:15 '),
+  '14:30 '=> t('14:30 '),
+  '14:45 '=> t('14:45 '),
+  '15:00 '=> t('15:00 '),
+  '15:15 '=> t('15:15 '),
+  '15:30 '=> t('15:30 '),
+  '15:45 '=> t('15:45 '),
+  '16:00 '=> t('16:00 '),
+  '16:15 '=> t('16:15 '),
+  '16:30 '=> t('16:30 '),
+  '16:45 '=> t('16:45 '),
+  '17:00 '=> t('17:00 '),
+  '17:15 '=> t('17:15 '),
+  '17:30 '=> t('17:30 '),
+  '17:45 '=> t('17:45 '),
+  '18:00 '=> t('18:00 '),
+  '18:15 '=> t('18:15 '),
+  '18:30 '=> t('18:30 '),
+  '18:45 '=> t('18:45 '),
+  '19:00 '=> t('19:00 '),
+  '19:15 '=> t('19:15 '),
+  '19:30 '=> t('19:30 '),
+  '19:45 '=> t('19:45 '),
+  '20:00 '=> t('20:00 '),
+  '20:15 '=> t('20:15 '),
+  '20:30 '=> t('20:30 '),
+  '20:45 '=> t('20:45 '),
+  '21:00 '=> t('21:00 '),
+  '21:15 '=> t('21:15 '),
+  '21:30 '=> t('21:30 '),
+  '21:45 '=> t('21:45 '),
+  '22:00 '=> t('22:00 '),
+  '22:15 '=> t('22:15 '),
+  '22:30 '=> t('22:30 '),
+  '22:45 '=> t('22:45 '),
+  '23:00 '=> t('23:00 '),
+  '23:15 '=> t('23:15 '),
+  '23:30 '=> t('23:30 '),
+  '23:45 '=> t('23:45 ')
+];
+
   //========================================================
   //translation
 
-  $languageEnglish = 'English';
-  $languageFrench = 'French';
-  $selectboxtranslate = 'Please Select';
-  $selectboxtranslateAccident = 'Please Select';
-  $selectboxtranslatefiledComplaint = 'Please Select';
-  $selectboxtranslatesignedAgreement = 'Please Select';
-  $selectboxtranslatepreferredLanguage= 'Please Select';
-  $selectboxtranslatepreferredCommunication = 'Please Select';
-  $email = 'E-mail';
-  $phone = 'Phone';
-  $mail = 'Mail';
-
-  $famillyname= 'Family Name (Required)';
-  $givenname= 'Given Name (Required)';
-  $dateofbirth = 'Date of Birth';
-  $street = 'Street Address or Post Office Box (Required)';
-  $city = 'City (Required)';
-  $proving = 'Province (Canada) (Required)';
-  $postalcode = 'Postal Code / ZIP Code (Required)';
-  $country = 'Country (Required)';
-  $telephone = 'Telephone number where you can be reached (999-999-9999) (Required)';
-  $emailadress = 'E-mail Address (yourname@domain.com)';
 
 
   $Title_info= ' <div class="row">
@@ -88,39 +170,128 @@ public function buildForm(array $form, FormStateInterface $form_state)
 
 
 
+
+$languageEnglish = 'English';
+$languageFrench = 'French';
+$selectboxtranslate = 'Please Select';
+$selectboxtranslateAccident = 'Please Select';
+$selectboxtranslatefiledComplaint = 'Please Select';
+$selectboxtranslatesignedAgreement = 'Please Select';
+$selectboxtranslatepreferredLanguage= 'Please Select';
+$selectboxtranslatepreferredCommunication = 'Please Select';
+$email = 'E-mail';
+$phone = 'Phone';
+$mail = 'Mail';
+
+$famillyname= 'Family Name (Required)';
+$givenname= 'Given Name (Required)';
+$dateofbirth = 'Date of Birth';
+$street = 'Street Address or Post Office Box (Required)';
+$city = 'City (Required)';
+$proving = 'Province (Canada) (Required)';
+$postalcode = 'Postal Code / ZIP Code (Required)';
+$country = 'Country (Required)';
+$telephone = 'Telephone number where you can be reached (999-999-9999) (Required)';
+$emailadress = 'E-mail Address (yourname@domain.com)';
+$accidentyes = 'Yes';
+$accidentno = 'No';
+$filedComplaintyes = 'Yes';
+$filedComplaintno = 'No';
+$signedAgreementyes = 'Yes';
+$signedAgreementno = 'No';
+
+$complainant_languagetrans = 'Preferred Language of Correspondence (Required)';
+$contact_tooltrans = 'Preferred method of communication (Required)';
+$contact_for_messages_questions_involvedtrans = 'Were you the person involved in the incident being complained of? (Required)';
+$contact_for_messages_questions_filenbrtrans = 'If you were given a file number by the RCMP with respect to the incident, please provide it (if known)';
+$contact_for_messages_questions_formtrans = 'Have you previously filed an official public complaint about this incident with the CRCC or the RCMP for which you were provided with a public complaint record/file number? (Required)';
+$contact_for_messages_questions_informaltrans = 'If yes, did you sign an agreement with the RCMP to resolve this complaint informally? (Required)';
+
+
+$authorizationtrans = '<fieldset class="mrgn-tp-lg"><legend>Representative Representative Authorization</legend>';
+$authorization_infotrans = '
+    <p>Complete the following section
+      <strong>ONLY</strong>
+    if you want the Civilian Review and Complaints Commission for the RCMP (the Commission) and the RCMP to communicate directly with a legal representative or an
+      <span class="hover-text">advocate<span class="tooltip-text" id="right">An individual that you authorize to act/speak on your behalf</span></span>
+    instead of yourself.</p>';
+$authorization_valuestrans = '
+      <ul>
+        <li>Family Name</li>
+        <li>Given Name</li>
+        <li>Telephone Number</li>
+        <li>E-mail Address</li>
+      </ul>';
+
+$authorization_moreInfotrans = '<p>By providing this information, you are authorizing the Commission and the RCMP to:</p>';
+$authorization_optionstrans = '
+<ul>
+  <li>Communicate directly with a legal representative or an advocate instead of yourself; and,</li>
+  <li>Disclose information related to your complaint to your representative.</li>
+</ul>';
+
+
+
+$complainttrans = '<fieldset class="mrgn-tp-lg"><legend>Details of Complaint <small>(complete as much as possible)</small></legend>';
+$complaint_dateIncidenttrans = '
+      <div class="well well-sm small">
+        <p>Please note that this date is in reference to the date that the alleged RCMP misconduct took place. It is not necessarily in reference to the date that the original incident took place, though the dates may be one in the same.</p>
+        <p>*If this date falls outside the one-year time limit for lodging a public complaint, you will be required to provide a justification to explain the delay in lodging your public complaint. </p>
+      </div>';
+
+$incident_timetrans='Time of Incident (approx.)';
+$incident_provincetrans = 'Province (Canada) (Required)';
+$incident_locationtrans = 'Location (city, town)';
+$incident_citytrans = 'Describe the circumstances that led to your complaint as completely as possible (Required)';
+$incident_describe_infotrans = '
+      <p>Please include:</p>
+      <ul>
+        <li>Where and when did the incident(s) that led to your complaint happen? </li>
+        <li>Who was involved</li>
+        <li>What conduct by the RCMP member(s) do you feel was improper?</li>
+        <li>What was said and done by the RCMP member(s) that you feel was improper</li>
+        <li>The names of any individual(s)   who witnessed the incident (including other police officers)</li>
+        <li>If there was any damage or injury</li>
+        <li>If there were any charges laid and the current status of those charges</li>
+        <li>If there was something that you feel caused the incident or affected your interaction with the RCMP</li>
+      </ul>
+      <p>Fill in as much of the information as you know. If you do not know any specific details, you may wish to include details such as landmarks, etc.</p>';
+
+$circumstancestrans = '* Allowable limit: 3500 characters';
+$officer_entered_notetrans = 'Please provide, if possible, the name, rank and detachment of the RCMP member(s) whose behavior you are complaining about. If you do not know the name, please provide a description and the number of members you are complaining about. Please ensure that the details of the specific misconduct of any members you list here are included in the section below.';
+$witness_entered_notetrans = 'Please provide the name(s) of any witness(es), if applicable. Witnesses may include RCMP members you are not complaining about.';
+$incident_textinfotrans = 'If you have provided the information requested above, your complaint should be complete.';
+$complaint_last_Definitiontrans = '
+<p> After your  submission is reviewed by an Intake Agent, you will receive correspondence on  the status of your complaint, along with information explaining future steps in  the complaint process.</p>
+<p>* please ensure that you check your spam mail to ensure that the Commission&&#39;s email has not been sent there erroneously. </p>
+<p>Although not  necessary, should you still feel that you need to speak with an Intake Agent by  phone please indicate below:</p>
+<ul>
+  <li>the best number to reach you at</li>
+  <li>a brief explanation why a call back is being  requested </li>
+</ul>
+<p>Please note that attempts to contact you by phone may take up to 15 business days. Calls will be placed during regular business hours Monday to Friday (Eastern Daylight Time) and may result in a delay in your complaint being reviewed.</p>';
+
+$complaint_approval_texttrans = '
+      <div class="well">
+        <p><strong>Privacy &amp; Disclosure of Personal Information</strong></p>
+        <p>By submitting a completed complaint form, you are authorizing the Commission to collect your personal information for the purposes related to Parts VI, VII, VII.1 and VII.2 of the RCMP Act. This information is held in personal information bank CRCC PPU 005, and you have a right to access this information in accordance with the <em>Privacy Act</em>.</p>
+        <p>Completed public complaint forms, along with all other relevant documentation you provide to the Commission, will be forwarded to the RCMP for investigation pursuant to subsection 45.53(10) of the <em>RCMP Act</em> and an RCMP complaint investigator may contact you to provide a statement.</p>
+        <p><strong>Acknowledgement</strong></p>
+        <p>I have reviewed this public complaint form and the information I have provided is true and complete to the best of my knowledge.</p>
+        <div class="checkbox-inline">';
+
+$note_acknowledgetrans =  'By clicking this box, you are acknowledging that the information provided is complete and accurate to the best of your knowledge. (Required)';
+$incident_dateofincidenttrans = 'Date of Incident (Required)';
+
   $lang = $_SERVER['REQUEST_URI'];
 
 
 
 
 
-  if(strcmp( $_SERVER['REQUEST_URI'],"/en/make-complaint-form")==0) {
-    $languageEnglish = 'Anglais';
-  $languageFrench = 'Français';
-  $email = 'Courriel';
-  $phone = 'Téléphone';
-  $mail = 'Courrier';
-  $selectboxtranslateAccident= 'Veuillez choisir';
-  $selectboxtranslatefiledComplaint= 'Veuillez choisir';
-  $selectboxtranslatesignedAgreement= 'Veuillez choisir';
-  $selectboxtranslate = 'Veuillez choisir';
-  $selectboxtranslatepreferredLanguage= 'Veuillez choisir';
-  $selectboxtranslatepreferredCommunication = 'Veuillez choisir';
+  if(strcmp( $_SERVER['REQUEST_URI'],"/fr/make-complaint-form")==0) {
 
-
-  $famillyname= 'Nom de famille (obligatoire)';
-  $givenname= 'Prénom (obligatoire)';
-  $dateofbirth = 'Date de naissance';
-  $street = 'Adresse municipale ou casier postal (obligatoire)';
-  $city = 'Ville (obligatoire)';
-  $proving = 'Province (Canada) (obligatoire)';
-  $postalcode = 'Code postal / ZIP (obligatoire)';
-  $country = 'Pays (obligatoire)';
-  $telephone = 'Numéro de téléphone où l&#39;on peut vous joindre (999-999-9999) (obligatoire)';
-  $emailadress = 'Adresse de courriel (votrenom@domaine.com)';
-
-
-  $Title_info = '
+    $Title_info = '
 <div class="row">
 <div class="col-md-8">
 <!--<div class="alert alert-warning">
@@ -163,13 +334,156 @@ public function buildForm(array $form, FormStateInterface $form_state)
   </section>
 </div>';
 
+
+    $languageEnglish = 'Anglais';
+  $languageFrench = 'Français';
+  $email = 'Courriel';
+  $phone = 'Téléphone';
+  $mail = 'Courrier';
+  $selectboxtranslateAccident= 'Veuillez choisir';
+  $selectboxtranslatefiledComplaint= 'Veuillez choisir';
+  $selectboxtranslatesignedAgreement= 'Veuillez choisir';
+  $selectboxtranslate = 'Veuillez choisir';
+  $selectboxtranslatepreferredLanguage= 'Veuillez choisir';
+  $selectboxtranslatepreferredCommunication = 'Veuillez choisir';
+
+
+  $famillyname= 'Nom de famille (obligatoire)';
+  $givenname= 'Prénom (obligatoire)';
+  $dateofbirth = 'Date de naissance';
+  $street = 'Adresse municipale ou casier postal (obligatoire)';
+  $city = 'Ville (obligatoire)';
+  $proving = 'Province (Canada) (obligatoire)';
+  $postalcode = 'Code postal / ZIP (obligatoire)';
+  $country = 'Pays (obligatoire)';
+  $telephone = 'Numéro de téléphone où l&#39;on peut vous joindre (999-999-9999) (obligatoire)';
+  $emailadress = 'Adresse de courriel (votrenom@domaine.com)';
+  $accidentyes = 'Oui';
+  $accidentno = 'Non';
+  $filedComplaintyes = 'Oui';
+  $filedComplaintno = 'Non';
+  $signedAgreementyes = 'Oui';
+  $signedAgreementno = 'Non';
+
+
+  $complainant_languagetrans = 'Langue de correspondance préférée (obligatoire)';
+$contact_tooltrans = 'Mode de communication privilégié (obligatoire)';
+$contact_for_messages_questions_involvedtrans = 'L&#39;incident faisant l&#39;objet de la plainte vous concerne-t-il directement? (obligatoire)';
+$contact_for_messages_questions_filenbrtrans = 'Si la GRC vous a donné un numéro de dossier concernant l&#39;incident, veuillez l&#39;indiquer (si vous le connaissez)';
+$contact_for_messages_questions_formtrans = 'Avez-vous déjà déposé une plainte auprès de la CCETP ou de la GRC concernant l&#39;incident et pour laquelle vous avez reçu un numéro de document ou de dossier? (obligatoire)';
+$contact_for_messages_questions_informaltrans = 'Si oui, avez-vous conclu une entente avec la GRC pour régler la plainte à l&#39;amiable? (obligatoire)';
+
+
+
+$authorizationtrans = '<fieldset class="mrgn-tp-lg"><legend>Autorisation d&#39;un représentant</legend>';
+$authorization_infotrans = '<p>Remplir la section qui suit <strong>UNIQUEMENT</strong> si   vous souhaitez que la Commission civile d&#39;examen et de traitement des plaintes relatives à la GRC (la Commission) et la GRC communiquent directement avec un représentant légal ou un  <span class="hover-text">porte-parole<span class="tooltip-text" id="right">Une personne que vous autorisez à agir/parler en votre nom</span></span> plutôt qu&#39;avec vous.</p>';
+$authorization_valuestrans = '<ul>
+<li>Nom de famille </li>
+
+<li>Prénom</li>
+
+<li>Numéro de téléphone </li>
+
+<li>Adresse de courriel </li>
+</ul>';
+
+$authorization_moreInfotrans = '<p>En fournissant ces renseignements, vous autorisez la Commission et la GRC à :</p>';
+$authorization_optionstrans = '<ul>
+<li>Communiquer directement avec un représentant légal ou un porte-parole plutôt qu&#39;avec vous;</li>
+<li>Divulguer à votre représentant des renseignements vous concernant.</li>
+</ul>';
+
+
+
+$complainttrans = '<fieldset class="mrgn-tp-lg"><legend>Détails concernant la plainte<small> (fournir le plus de renseignements possible)</small></legend>';
+$incident_dateofincidenttrans = 'Date de l&#39;incident (obligatoire)';
+$complaint_dateIncidenttrans = '
+      <div class="well well-sm small">
+        <p>Veuillez noter que cette date concerne la date à laquelle la GRC aurait commis l&#39;inconduite. Il ne s&#39;agit pas nécessairement de la date de survenance de l&#39;incident d&#39;origine, bien que les deux dates puissent être identiques. </p>
+        <p>*Si cette date tombe après le délai prescrit d&#39;un an pour déposer une plainte du public, vous devrez fournir une justification pour expliquer le retard à déposer votre plainte.</p>
+        </div>';
+
+$incident_timetrans='Heure de l&#39;incident (approx.)';
+$incident_provincetrans = 'Province (obligatoire)';
+$incident_locationtrans = 'Lieu (ville, village)';
+$incident_citytrans = 'Veuillez décrire de la façon la plus complète possible les circonstances qui ont motivé votre plainte (obligatoire)';
+$incident_describe_infotrans = '
+      <p>Fournissez des précisions concernant :</p>
+      <ul>
+
+  <li>À quel  endroit et quand l&#39;incident faisant l&#39;objet de la plainte s&#39;est-il produit? </li>
+  <li>Les personnes concernées</li>
+  <li>Quelle conduite répréhensible le membre de la GRC a-t-il adoptée selon vous?</li>
+  <li>Les gestes et les paroles du membre de la GRC qui, selon vous, étaient inappropriées</li>
+  <li>Le nom de toutes autres personnes qui ont été témoins de l&#39;incident (y compris d&#39;autres policiers)</li>
+  <li>Les blessures ou les dommages causés, s&#39;il y a lieu</li>
+  <li>Toutes accusations déposées et le résultat de celles-ci</li>
+  <li>Un détail qui, selon vous, est à l&#39;origine de l&#39;incident ou qui a eu des conséquences sur vos échanges avec la GRC</li>
+  </ul>
+   <p>Veuillez fournir autant de renseignements que vous le pouvez. Si vous ne connaissez pas de détails précis, vous pouvez inclure des précisions concernant un point de repère, etc.</p>';
+
+$circumstancestrans = '* Nombre maximum de caractères autorisés : 3 500';
+$officer_entered_notetrans = 'Veuillez fournir, si possible, le nom du membre de la GRC qui fait l&#39;objet de votre plainte, ainsi que son grade et le détachement auquel il appartient. Si vous ignorez le nom du membre, veuillez fournir une description de sa personne, ainsi que le nombre de membres qui sont visés par la plainte. Veillez à ce que les renseignements concernant l&#39;inconduite des  membres énumérés dans ce champ soient mentionnés dans la section ci-dessous. ';
+$witness_entered_notetrans = 'Veuillez fournir le nom de tous les témoins, s&#39;il y a lieu. Il peut s&#39;agir de membres de la GRC dont la conduite ne fait pas l&#39;objet de la plainte.';
+$incident_textinfotrans = 'Si vous avez fourni les renseignements demandés ci-dessus, votre plainte est complète.';
+$complaint_last_Definitiontrans = '
+      <p>Lorsqu&#39;un agent de la réception des plaintes aura pris connaissance de votre plainte, vous recevrez une lettre sur l&#39;état d&#39;avancement de votre plainte, ainsi que des renseignements expliquant les prochaines étapes du processus de traitement des plaintes.</p><p>* Si vous avez fourni à la Commission une adresse de courriel pour qu&#39;elle communique avec vous, vérifiez votre boîte de pourriels afin de vous assurer que les courriels de la Commission n&#39;y ont pas été livrés par erreur. </p>
+<p>Bien que ce ne soit pas nécessaire, si vous souhaitez toujours parler à un agent de la réception des plaintes par téléphone, veuillez fournir ci-dessous :</p>
+<ul>
+  <li>le numéro où vous joindre  </li>
+  <li>une brève explication de la raison pour laquelle vous demandez à ce qu&#39;on vous rappelle  </li>
+</ul>
+<p>Veuillez noter que les tentatives de vous contacter par téléphone pourraient prendre jusqu&#39;à 15 jours ouvrables. Les appels seront faits durant les heures normales d&#39;ouverture, du lundi au vendredi (heure avancée de l&#39;Est), ce qui pourrait retarder l&#39;examen de votre plainte.</p>
+      <textarea class="form-control" id="witness_added_note" name="witness_added_note" rows="5" cols="65" maxlength="3510" size="3510" data-rule-rangelength="[0,3500]"></textarea>
+    ';
+
+$complaint_approval_texttrans = '
+      <div class="well">
+        <p><strong>Respect de la vie privée et divulgation de renseignements personnels</strong></p>
+        <p>En soumettant le Formulaire de plainte dûment rempli, vous autorisez la Commission à recueillir vos renseignements personnels à des fins reliées au processus prévu aux parties VI, VII, VII.1 et VII.2 de la <em>Loi sur la GRC</em>. Les renseignements sont conservés dans le fichier de renseignements personnels CCETP PPU 005, et vous pouvez y accéder conformément à la <em>Loi sur la protection des renseignements personnels</em>.</p>
+        <p>Le Formulaire de plainte dûment rempli ainsi que tous les documents pertinents que vous fournirez à la Commission seront acheminés à la GRC pour une enquête en vertu du paragraphe 45.53(10) de la <em>Loi sur la GRC</em>. Par conséquent, un enquêteur de la GRC chargé de la plainte pourrait vous demander de donner une déclaration.</p>
+        <p><strong> Attestation</strong></p>
+        <p>J&#39;ai passé en revue le Formulaire de plainte, et je reconnais que les renseignements fournis sont, à ma connaissance, complets et exacts.</p>
+        <div class="checkbox-inline">';
+
+$note_acknowledgetrans =  'En cochant cette case, vous reconnaissez que les renseignements fournis sont complets et exacts au meilleur de votre connaissance. (obligatoire)';
 }
 
 
 //===============================================================
 
+  // Preferred Language of Correspondence options
+  $preferredLanguage = [
+    '' => t($selectboxtranslatepreferredLanguage),
+    'ENGLISH-ANGLAIS' => t($languageEnglish),
+    'FRENCH-FRAN&#199;AIS' => t($languageFrench),
+  ];
+  // Preferred method of communication options
+  $preferredCommunication = [
+    '' => t($selectboxtranslatepreferredCommunication),
+    'EMAIL-COURRIEL' => t($email),
+    'TELEPHONE-TÉLÉPHONE' => t($phone),
+    'LETTER-LETTRE' => t($mail)
+  ];
+  //involved in accident options
+  $accident= [
+    '' => t($selectboxtranslateAccident),
+    'NO-NON' => t($accidentno),
+    'YES-OUI' => t($accidentyes)
+  ];
+  //filed complaint options
+  $filedComplaint= [
+    '' => t($selectboxtranslatefiledComplaint),
+    'NO-NON' => t($filedComplaintno),
+    'YES-OUI' => t($filedComplaintyes)
+  ];
+  //signed agreement options
+  $signedAgreement= [
+    '' => t($selectboxtranslatesignedAgreement),
+    'NO-NON' => t($signedAgreementno),
+    'YES-OUI' => t($signedAgreementyes)
+  ];
 
-  //VARIABLES
   //array of option for the province selectors
   $provinces = [
     '' => t($selectboxtranslate),
@@ -188,140 +502,6 @@ public function buildForm(array $form, FormStateInterface $form_state)
     'NS'=> $this->t('NS'),
     'N/A'=> $this->t('N/A')
   ];
-
-
-
-  // Preferred Language of Correspondence options
-  $preferredLanguage = [
-    '' => t($selectboxtranslatepreferredLanguage),
-    'ENGLISH-ANGLAIS' => t($languageEnglish),
-    'FRENCH-FRAN&#199;AIS' => t($languageFrench),
-  ];
-  // Preferred method of communication options
-  $preferredCommunication = [
-    '' => t($selectboxtranslatepreferredCommunication),
-    'EMAIL-COURRIEL' => t($email),
-    'TELEPHONE-TÉLÉPHONE' => t($phone),
-    'LETTER-LETTRE' => t($mail)
-  ];
-  //involved in accident options
-  $accident= [
-    '' => t($selectboxtranslateAccident),
-    'NO-NON' => t('No'),
-    'YES-OUI' => t('Yes')
-  ];
-  //filed complaint options
-  $filedComplaint= [
-    '' => t($selectboxtranslatefiledComplaint),
-    'NO-NON' => t('No'),
-    'YES-OUI' => t('Yes')
-  ];
-  //signed agreement options
-  $signedAgreement= [
-    '' => t($selectboxtranslatesignedAgreement),
-    'NO-NON' => t('No'),
-    'YES-OUI' => t('Yes')
-  ];
-
-    //signed agreement options
-    $timeIncident= [
-      '00:00 '=> t('00:00 '),
-      '00:15 '=> t('00:15 '),
-      '00:30 '=> t('00:30 '),
-      '00:45 '=> t('00:45 '),
-      '01:00 '=> t('01:00 '),
-      '01:15 '=> t('01:15 '),
-      '01:30 '=> t('01:30 '),
-      '01:45 '=> t('01:45 '),
-      '02:00 '=> t('02:00 '),
-      '02:15 '=> t('02:15 '),
-      '02:30 '=> t('02:30 '),
-      '02:45 '=> t('02:45 '),
-      '03:00 '=> t('03:00 '),
-      '03:15 '=> t('03:15 '),
-      '03:30 '=> t('03:30 '),
-      '03:45 '=> t('03:45 '),
-      '04:00 '=> t('04:00 '),
-      '04:15 '=> t('04:15 '),
-      '04:30 '=> t('04:30 '),
-      '04:45 '=> t('04:45 '),
-      '05:00 '=> t('05:00 '),
-      '05:15 '=> t('05:15 '),
-      '05:30 '=> t('05:30 '),
-      '05:45 '=> t('05:45 '),
-      '06:00 '=> t('06:00 '),
-      '06:15 '=> t('06:15 '),
-      '06:30 '=> t('06:30 '),
-      '06:45 '=> t('06:45 '),
-      '07:00 '=> t('07:00 '),
-      '07:15 '=> t('07:15 '),
-      '07:30 '=> t('07:30 '),
-      '07:45 '=> t('07:45 '),
-      '08:00 '=> t('08:00 '),
-      '08:15 '=> t('08:15 '),
-      '08:30 '=> t('08:30 '),
-      '08:45 '=> t('08:45 '),
-      '09:00 '=> t('09:00 '),
-      '09:15 '=> t('09:15 '),
-      '09:30 '=> t('09:30 '),
-      '09:45 '=> t('09:45 '),
-      '10:00 '=> t('10:00 '),
-      '10:15 '=> t('10:15 '),
-      '10:30 '=> t('10:30 '),
-      '10:45 '=> t('10:45 '),
-      '11:00 '=> t('11:00 '),
-      '11:15 '=> t('11:15 '),
-      '11:30 '=> t('11:30 '),
-      '11:45 '=> t('11:45 '),
-      '12:00 '=> t('12:00 '),
-      '12:15 '=> t('12:15 '),
-      '12:30 '=> t('12:30 '),
-      '12:45 '=> t('12:45 '),
-      '13:00 '=> t('13:00 '),
-      '13:15 '=> t('13:15 '),
-      '13:30 '=> t('13:30 '),
-      '13:45 '=> t('13:45 '),
-      '14:00 '=> t('14:00 '),
-      '14:15 '=> t('14:15 '),
-      '14:30 '=> t('14:30 '),
-      '14:45 '=> t('14:45 '),
-      '15:00 '=> t('15:00 '),
-      '15:15 '=> t('15:15 '),
-      '15:30 '=> t('15:30 '),
-      '15:45 '=> t('15:45 '),
-      '16:00 '=> t('16:00 '),
-      '16:15 '=> t('16:15 '),
-      '16:30 '=> t('16:30 '),
-      '16:45 '=> t('16:45 '),
-      '17:00 '=> t('17:00 '),
-      '17:15 '=> t('17:15 '),
-      '17:30 '=> t('17:30 '),
-      '17:45 '=> t('17:45 '),
-      '18:00 '=> t('18:00 '),
-      '18:15 '=> t('18:15 '),
-      '18:30 '=> t('18:30 '),
-      '18:45 '=> t('18:45 '),
-      '19:00 '=> t('19:00 '),
-      '19:15 '=> t('19:15 '),
-      '19:30 '=> t('19:30 '),
-      '19:45 '=> t('19:45 '),
-      '20:00 '=> t('20:00 '),
-      '20:15 '=> t('20:15 '),
-      '20:30 '=> t('20:30 '),
-      '20:45 '=> t('20:45 '),
-      '21:00 '=> t('21:00 '),
-      '21:15 '=> t('21:15 '),
-      '21:30 '=> t('21:30 '),
-      '21:45 '=> t('21:45 '),
-      '22:00 '=> t('22:00 '),
-      '22:15 '=> t('22:15 '),
-      '22:30 '=> t('22:30 '),
-      '22:45 '=> t('22:45 '),
-      '23:00 '=> t('23:00 '),
-      '23:15 '=> t('23:15 '),
-      '23:30 '=> t('23:30 '),
-      '23:45 '=> t('23:45 ')
-    ];
 
 //========================================================
   $form['Title_info'] = [
@@ -399,7 +579,6 @@ public function buildForm(array $form, FormStateInterface $form_state)
     '#title' => $this->t($emailadress),
   ];
 
-
   //========================================================
   //QUESTIONS
    //user date of birth label
@@ -410,33 +589,33 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['complainant_language'] = [
    '#type' => 'select',
    '#name'=> 'complainant_language',
-   '#title' => $this->t('Preferred Language of Correspondence (Required)'),
+   '#title' => $this->t($complainant_languagetrans),
    '#options' => $preferredLanguage,
   ];
   $form['contact_tool'] = [
     '#type' => 'select',
     '#name'=> 'contact_tool',
-    '#title' => $this->t('Preferred method of communication (Required)'),
+    '#title' => $this->t($contact_tooltrans),
     '#options' => $preferredCommunication,
     //'#required' => TRUE,
   ];
   $form['contact_for_messages_questions_involved'] = [
     '#type' => 'select',
     '#name'=> 'contact_for_messages_questions_involved',
-    '#title' => $this->t('Were you the person involved in the incident being complained of? (Required)'),
+    '#title' => $this->t($contact_for_messages_questions_involvedtrans),
     '#options' => $accident,
     //'#required' => TRUE,
   ];
   $form['contact_for_messages_questions_filenbr'] = [
     '#type' => 'textfield',
     '#name'=> 'contact_for_messages_questions_filenbr',
-    '#title' => $this->t('If you were given a file number by the RCMP with respect to the incident, please provide it (if known)'),
+    '#title' => $this->t($contact_for_messages_questions_filenbrtrans),
   ];
 
   $form['contact_for_messages_questions_form'] = [
     '#type' => 'select',
     '#name'=> 'contact_for_messages_questions_form',
-    '#title' => $this->t('Have you previously filed an official public complaint about this incident with the CRCC or the RCMP for which you were provided with a public complaint record/file number? (Required)'),
+    '#title' => $this->t($contact_for_messages_questions_formtrans),
     '#options' => $filedComplaint,
    //'#required' => TRUE,
   ];
@@ -444,7 +623,7 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['contact_for_messages_questions_informal'] = [
     '#type' => 'select',
     '#name'=> 'contact_for_messages_questions_informal',
-    '#title' => $this->t('If yes, did you sign an agreement with the RCMP to resolve this complaint informally? (Required)'),
+    '#title' => $this->t($contact_for_messages_questions_informaltrans),
     '#options' => $signedAgreement,
    // '#required' => TRUE,
   ];
@@ -457,42 +636,26 @@ public function buildForm(array $form, FormStateInterface $form_state)
   //Representative Authorization
   $form['authorization'] = [
     '#type' => 'markup',
-    '#markup' => t('<fieldset class="mrgn-tp-lg"><legend>Representative Authorization</legend>'),
+    '#markup' => t($authorizationtrans),
   ];
   $form['authorization_info'] = [
     '#type' => 'markup',
-    '#markup' => t('
-    <p>Complete the following section
-      <strong>ONLY</strong>
-    if you want the Civilian Review and Complaints Commission for the RCMP (the Commission) and the RCMP to communicate directly with a legal representative or an
-      <span class="hover-text">advocate<span class="tooltip-text" id="right">An individual that you authorize to act/speak on your behalf</span></span>
-    instead of yourself.</p>'),
+    '#markup' => t($authorization_infotrans),
   ];
 
   $form['authorization_values'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <ul>
-        <li>Family Name</li>
-        <li>Given Name</li>
-        <li>Telephone Number</li>
-        <li>E-mail Address</li>
-      </ul>'
-    ),
+    '#markup' => t($authorization_valuestrans),
   ];
 
   $form['authorization_moreInfo'] = [
     '#type' => 'markup',
-    '#markup' => t('<p>By providing this information, you are authorizing the Commission and the RCMP to:</p>'),
+    '#markup' => t($authorization_moreInfotrans),
   ];
 
   $form['authorization_options'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <ul>
-        <li>Communicate directly with a legal representative or an advocate instead of yourself; and,</li>
-        <li>Disclose information related to your complaint to your representative.</li>
-      </ul>'
+    '#markup' => t($authorization_optionstrans
     ),
   ];
 
@@ -510,22 +673,18 @@ public function buildForm(array $form, FormStateInterface $form_state)
   //Details of Complaint
   $form['complaint'] = [
     '#type' => 'markup',
-    '#markup' => t('<fieldset class="mrgn-tp-lg"><legend>Details of Complaint <small>(complete as much as possible)</small></legend>'),
+    '#markup' => t($complainttrans),
   ];
 
   $form['incident_dateofincident'] = [
     '#type' => 'label',
-    '#title' => $this->t('Date of Incident (Required)'),
+    '#title' => $this->t($incident_dateofincidenttrans),
     //'#required' => FALSE,
   ];
 
   $form['complaint_dateIncident'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <div class="well well-sm small">
-        <p>Please note that this date is in reference to the date that the alleged RCMP misconduct took place. It is not necessarily in reference to the date that the original incident took place, though the dates may be one in the same.</p>
-        <p>*If this date falls outside the one-year time limit for lodging a public complaint, you will be required to provide a justification to explain the delay in lodging your public complaint. </p>
-      </div>'
+    '#markup' => t($complaint_dateIncidenttrans
     ),
   ];
   //date of incident chooser
@@ -538,7 +697,7 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['incident_time'] = [
     '#type' => 'select',
     '#name'=> 'incident_time',
-    '#title' => $this->t('Time of Incident (approx.)'),
+    '#title' => $this->t($incident_timetrans),
     '#options' =>$timeIncident,
     //'#required' => FALSE,
   ];
@@ -547,7 +706,7 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['incident_province'] = [
     '#type' => 'select',
     '#name'=> 'incident_province',
-    '#title' => $this->t('Province (Canada) (Required)'),
+    '#title' => $this->t($incident_provincetrans),
     '#options' => $provinces,
     //'#required' => TRUE,
   ];
@@ -556,68 +715,47 @@ public function buildForm(array $form, FormStateInterface $form_state)
   $form['incident_location'] = [
     '#type' => 'textfield',
     '#name'=> 'incident_location',
-    '#title' => $this->t('Location (city, town)'),
+    '#title' => $this->t($incident_locationtrans),
     //'#required' => FALSE,
   ];
 
   $form['incident_city'] = [
     '#type' => 'label',
     '#for' => 'circumstances',
-    '#title' => $this->t('Describe the circumstances that led to your complaint as completely as possible (Required)'),
+    '#title' => $this->t($incident_citytrans),
     //'#required' => FALSE,
   ];
   $form['incident_describe_info'] = [
     '#type' => 'markup',
     '#for' => 'circumstances',
-    '#markup' => t('
-      <p>Please include:</p>
-      <ul>
-        <li>Where and when did the incident(s) that led to your complaint happen? </li>
-        <li>Who was involved</li>
-        <li>What conduct by the RCMP member(s) do you feel was improper?</li>
-        <li>What was said and done by the RCMP member(s) that you feel was improper</li>
-        <li>The names of any individual(s)   who witnessed the incident (including other police officers)</li>
-        <li>If there was any damage or injury</li>
-        <li>If there were any charges laid and the current status of those charges</li>
-        <li>If there was something that you feel caused the incident or affected your interaction with the RCMP</li>
-      </ul>
-      <p>Fill in as much of the information as you know. If you do not know any specific details, you may wish to include details such as landmarks, etc.</p>'
-    ),
+    '#markup' => t($incident_describe_infotrans),
   ];
 
   $form['circumstances'] = [
     '#type' => 'textarea',
     '#name' => 'circumstances',
-    '#title' => $this->t('* Allowable limit: 3500 characters'),
+    '#title' => $this->t($circumstancestrans),
   ];
   $form['officer_entered_note'] = [
     '#type' => 'textarea',
     '#name' => 'officer_entered_note',
-    '#title' => $this->t('Please provide, if possible, the name, rank and detachment of the RCMP member(s) whose behavior you are complaining about. If you do not know the name, please provide a description and the number of members you are complaining about. Please ensure that the details of the specific misconduct of any members you list here are included in the section below.'),
+    '#title' => $this->t($officer_entered_notetrans),
   ];
   $form['witness_entered_note'] = [
     '#type' => 'textarea',
     '#name' => 'officer_entered_note',
-    '#title' => $this->t('Please provide the name(s) of any witness(es), if applicable. Witnesses may include RCMP members you are not complaining about.'),
+    '#title' => $this->t($witness_entered_notetrans),
   ];
 
   $form['incident_textinfo'] = [
     '#type' => 'label',
-    '#title' => t('If you have provided the information requested above, your complaint should be complete.'),
+    '#title' => t($incident_textinfotrans),
     //'#required' => FALSE,
   ];
 
   $form['complaint_last_Definition'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <p> After your  submission is reviewed by an Intake Agent, you will receive correspondence on  the status of your complaint, along with information explaining future steps in  the complaint process.</p>
-      <p>* please ensure that you check your spam mail to ensure that the Commission&&#39;s email has not been sent there erroneously. </p>
-      <p>Although not  necessary, should you still feel that you need to speak with an Intake Agent by  phone please indicate below:</p>
-      <ul>
-        <li>the best number to reach you at</li>
-        <li>a brief explanation why a call back is being  requested </li>
-      </ul>
-      <p>Please note that attempts to contact you by phone may take up to 15 business days. Calls will be placed during regular business hours Monday to Friday (Eastern Daylight Time) and may result in a delay in your complaint being reviewed.</p>'),
+    '#markup' => t($complaint_last_Definitiontrans),
   ];
   $form['witness_added_note'] = [
     '#type' => 'textarea',
@@ -627,20 +765,13 @@ public function buildForm(array $form, FormStateInterface $form_state)
 
   $form['complaint_approval_text'] = [
     '#type' => 'markup',
-    '#markup' => t('
-      <div class="well">
-        <p><strong>Privacy &amp; Disclosure of Personal Information</strong></p>
-        <p>By submitting a completed complaint form, you are authorizing the Commission to collect your personal information for the purposes related to Parts VI, VII, VII.1 and VII.2 of the RCMP Act. This information is held in personal information bank CRCC PPU 005, and you have a right to access this information in accordance with the <em>Privacy Act</em>.</p>
-        <p>Completed public complaint forms, along with all other relevant documentation you provide to the Commission, will be forwarded to the RCMP for investigation pursuant to subsection 45.53(10) of the <em>RCMP Act</em> and an RCMP complaint investigator may contact you to provide a statement.</p>
-        <p><strong>Acknowledgement</strong></p>
-        <p>I have reviewed this public complaint form and the information I have provided is true and complete to the best of my knowledge.</p>
-        <div class="checkbox-inline">'
+    '#markup' => t($complaint_approval_texttrans
     ),
   ];
   $form['note_acknowledge'] = [
     '#type' => 'checkbox',
     '#name'=> 'note_acknowledge',
-    '#title' => $this->t('By clicking this box, you are acknowledging that the information provided is complete and accurate to the best of your knowledge. (Required)'),
+    '#title' => $this->t($note_acknowledgetrans),
   ];
   //========================================================
   //HIDDEN FIELDS
