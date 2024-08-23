@@ -743,7 +743,7 @@ $note_acknowledgetrans =  'En cochant cette case, vous reconnaissez que les rens
   ];
   $form['witness_entered_note'] = [
     '#type' => 'textarea',
-    '#name' => 'officer_entered_note',
+    '#name' => 'witness_entered_note',
     '#title' => $this->t($witness_entered_notetrans),
   ];
 
