@@ -2,6 +2,6 @@ crccwebform.testing:
   path: '/make-complaint-form'
   defaults:
     _form: '\Drupal\crccwebform\Form\Crccwebform'
-    _title: "Make Complaint Form" #'Complaint Form | Civilian Review and Complaints Commission for the RCMP'
+    _title: "" #'Complaint Form | Civilian Review and Complaints Commission for the RCMP'
   requirements:
     _permission: 'access content'
