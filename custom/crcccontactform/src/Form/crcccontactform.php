@@ -23,21 +23,23 @@ class crcccontactform extends FormBase
     //VARIABLES
     //array of option for the province selectors
 
-    //signed agreement options
-    $signedAgreement = [
-      '' => t('Please Select'),
-      'NO-NON' => t('No'),
-      'YES-OUI' => t('Yes')
-    ];
-    //========================================================
-    //
-    //
+    $contact_name_firsttrans = 'First Name (Required)';
+    $contact_name_lasttrans = 'Last Name (Required)';
+    $contact_emailtrans = 'E-mail Address (yourname@domain.com)';
+    $contact_subjecttrans = 'Subject (Required)';
+    $contact_commentstrans = 'Comments (Required)';
+    $file_last_Definitiontrans = '<div class="well"><label class="control-label" for="note_acknowledge"><span class="field-name">I consent to the use of my personal information by the Civilian Review and Complaints Commission for the purpose of responding to my inquiry.</span> <strong>(Required)</strong> </label>';
+   // $contact_for_messages_questions_informaltrans = 'If yes, did you sign an agreement with the RCMP to resolve this complaint informally? (Required)';
+    $contact_buttontrans = 'Submit';
+    $contact_yestrans = 'Yes';
+    $contact_Notrans = 'No';
+    $contact_selecttrans = 'Please Select';
+    $Title_infotrans = '';
 
-//<div class="alert-success"><p>Thank you for contacting the Commission. Your reference number is <strong>'.$_GET['result'].'</strong></p></div>
-    if(isset($_GET['result'])){ 
-    $form['Title_info'] = [
-      '#type' => 'markup',
-      '#markup' => t('<div class="row">
+
+    //========================================================
+    if(isset($_GET['result'])){
+      $Title_infotrans = '<div class="row">
       <div class="mrgn-tp-0">
 
         <main role="main" property="mainContentOfPage" class="col-md-12">
@@ -80,13 +82,10 @@ class crcccontactform extends FormBase
       </ul>
       <p class="mrgn-bttm-lg"><strong>If you cannot find the answer to your question above, please fill in the following form.</strong></p>
 
-    '),
-    ];
+    ';
     }else {
-    
-	    $form['Title_info'] = [
-		          '#type' => 'markup',
-			        '#markup' => t('<div class="row">
+
+      $Title_infotrans = '<div class="row">
 				      <div class="mrgn-tp-0">
 
         <main role="main" property="mainContentOfPage" class="col-md-12">
@@ -112,10 +111,114 @@ class crcccontactform extends FormBase
       </ul>
       <p class="mrgn-bttm-lg"><strong>If you cannot find the answer to your question above, please fill in the following form.</strong></p>
 
-    '),
-    ];
-    
+    ';
+
     }
+
+
+    if(str_contains( $_SERVER['REQUEST_URI'],"/fr/Contact-form")) {
+      $contact_name_firsttrans = 'Prénom (obligatoire)';
+      $contact_name_lasttrans = 'Nom (obligatoire)';
+      $contact_emailtrans = 'Adresse courriel (nom@courriel.com) (obligatoire)';
+      $contact_subjecttrans = 'Objet (obligatoire)';
+      $contact_commentstrans = 'Commentaires (obligatoire)';
+      $file_last_Definitiontrans = '<div class="well"><label class="control-label" for="note_acknowledge"><span class="field-name">Je donne la permission à la Commission civile d&#39;examen et de traitement des plaintes relatives à la GRC d&#39;utiliser mes données personnelles pour répondre à mon enquête.</span> <strong>(Obligatoire)</strong> </label>';
+    //  $contact_for_messages_questions_informaltrans = 'If yes, did you sign an agreement with the RCMP to resolve this complaint informally? (Required)';
+      $contact_buttontrans = 'Soumettre';
+      $contact_yestrans = 'Oui';
+      $contact_Notrans = 'Non';
+      $contact_selecttrans = 'Veuillez Choisir';
+
+
+      if(isset($_GET['result'])){
+        $Title_infotrans = '<div class="row">
+        <div class="mrgn-tp-0">
+
+          <main role="main" property="mainContentOfPage" class="col-md-12">
+
+
+                            <h1 id="wb-cont">Contactez-nous</h1>
+
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+
+
+
+
+  <div class="highlighted col-md-12">  <div class="region region-highlighted">
+      <div data-drupal-messages-fallback="" class="hidden"></div><div data-drupal-messages="">
+    <div class="messages__wrapper">
+                <section tabindex="0" aria-label="Status message" role="status" class="alert alert-success alert-dismissible mrgn-tp-md mrgn-bttm-md">
+        <button aria-label="Close" data-dismiss="alert" class="close" role="button" type="button"><span aria-hidden="true">×</span></button>
+                <h2 class="sr-only">Status message</h2>
+  <p>Merci d&#39;avoir contacté la Commission. Voici votre numéro de référence est <strong>'.$_GET['result'].'</strong></p>
+            </section>
+      </div>
+  </div>
+
+    </div>
+  </div>
+
+
+
+    <div class="wb-frmvld wb-fdbck nojs-hide wb-init wb-frmvld-inited" id="wb-auto-1">
+        <!--<div class="alert alert-warning">
+    <h2>Service Interruption </h2>
+       <p>The Contact Form will be unavailable on Tuesday, May 14, from 6 p.m. to 8 p.m. (ET) due to system maintenance.</p>
+    </div>-->
+        <p>Merci d&#39;avoir visité le site Web de la Commission.</p>
+        <ul>
+            <li>Je veux <a href="/en/make-complaint">file a complaint</a> contre un membre de la  <abbr title="Gendarmerie Royale du Canada">GRC</abbr></li>
+            <li>Je ne suis pas satisfait(e) des conclusions de la GRC concernant ma plainte et j&#39;aimerais que la Commission<a href="/fr/demande-dexamen">examine le règlement de ma plainte</a></li>
+            <li>Je souhaite présenter une <a href="/fr/pr-senter-une-demande-dacc-s-linformation-et-de-communication-de-renseignements-personnels">demande d&#39;accès à l&#39;information ou de communication de renseignements personnels (AIPRP)</a></li>
+            <li>Je suis journaliste et j&#39;aimerais communiquer avec <a href="/fr/newsroom">un(e) porte-parole</a></li>
+        </ul>
+        <p class="mrgn-bttm-lg"><strong>Si vous ne trouvez pas la réponse à votre question dans les pages susmentionnées, veuillez remplir le formulaire suivant.</strong></p>
+
+      ';
+      }else {
+
+        $Title_infotrans = '<div class="row">
+                <div class="mrgn-tp-0">
+
+          <main role="main" property="mainContentOfPage" class="col-md-12">
+
+
+                            <h1 id="wb-cont">Contact Form</h1>
+
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+
+
+
+    <div class="wb-frmvld wb-fdbck nojs-hide wb-init wb-frmvld-inited" id="wb-auto-1">
+        <!--<div class="alert alert-warning">
+    <h2>Service Interruption </h2>
+       <p>The Contact Form will be unavailable on Tuesday, May 14, from 6 p.m. to 8 p.m. (ET) due to system maintenance.</p>
+    </div>-->
+        <p>Merci d&#39;avoir visité le site Web de la Commission.</p>
+        <ul>
+            <li>Je veux <a href="/en/make-complaint">file a complaint</a> contre un membre de la  <abbr title="Gendarmerie Royale du Canada">GRC</abbr></li>
+            <li>Je ne suis pas satisfait(e) des conclusions de la GRC concernant ma plainte et j&#39;aimerais que la Commission<a href="/fr/demande-dexamen">examine le règlement de ma plainte</a></li>
+            <li>Je souhaite présenter une <a href="/fr/pr-senter-une-demande-dacc-s-linformation-et-de-communication-de-renseignements-personnels">demande d&#39;accès à l&#39;information ou de communication de renseignements personnels (AIPRP)</a></li>
+            <li>Je suis journaliste et j&#39;aimerais communiquer avec <a href="/fr/newsroom">un(e) porte-parole</a></li>
+        </ul>
+        <p class="mrgn-bttm-lg"><strong>Si vous ne trouvez pas la réponse à votre question dans les pages susmentionnées, veuillez remplir le formulaire suivant.</strong></p>
+
+      ';
+
+      }
+      }
+
+      //signed agreement options
+      $signedAgreement = [
+        '' => t($contact_selecttrans),
+        'NO-NON' => t($contact_Notrans),
+        'YES-OUI' => t($contact_yestrans)
+      ];
+
+    $form['Title_info'] = [
+      '#type' => 'markup',
+      '#markup' => t($Title_infotrans),
+    ];
     //========================================================
 
     //========================================================
@@ -125,7 +228,7 @@ class crcccontactform extends FormBase
     $form['contact_name_first'] = [
       '#type' => 'textfield',
       '#name' => 'contact_name_first',
-      '#title' => $this->t('First Name (Required)'),
+      '#title' => $this->t($contact_name_firsttrans),
       '#required' => TRUE,
     ];
     $form['Title_given_name'] = [
@@ -139,46 +242,45 @@ class crcccontactform extends FormBase
     $form['contact_name_last'] = [
       '#type' => 'textfield',
       '#name' => 'contact_name_last',
-      '#title' => $this->t('Last Name (Required)'),
+      '#title' => $this->t($contact_name_lasttrans),
       '#required' => TRUE,
     ];
     //user email address
     $form['contact_email'] = [
       '#type' => 'textfield',
       '#name' => 'contact_email',
-      '#title' => $this->t('E-mail Address (yourname@domain.com)'),
+      '#title' => $this->t($contact_emailtrans),
     ];
     $form['contact_subject'] = [
       '#type' => 'textfield',
       '#name' => 'contact_subject',
-      '#title' => $this->t('Subject (Required)'),
+      '#title' => $this->t($contact_subjecttrans),
       '#required' => TRUE,
     ];
 
     $form['contact_comments'] = [
       '#type' => 'textarea',
       '#name' => 'contact_comments',
-      '#title' => $this->t('Comments (Required)'),
+      '#title' => $this->t($contact_commentstrans),
       '#required' => TRUE,
     ];
 
     $form['file_last_Definition'] = [
       '#type' => 'markup',
-      '#markup' => t('<div class="well"><label class="control-label" for="note_acknowledge"><span class="field-name">I consent to the use of my personal information by the Civilian Review and Complaints Commission for the purpose of responding to my inquiry.</span> <strong>(Required)</strong> </label>
-
-
- 
-'),
+      '#markup' => t($file_last_Definitiontrans),
     ];
 
-    
+
     $form['contact_for_messages_questions_informal'] = [
       '#type' => 'select',
       '#name' => 'contact_for_messages_questions_informal',
-      '#title' => $this->t('If yes, did you sign an agreement with the RCMP to resolve this complaint informally? (Required)'),
+      //'#title' => $this->t($contact_for_messages_questions_informaltrans),
+      '#title' => $this->t(''),
       '#options' => $signedAgreement,
       '#required' => TRUE,
     ];
+
+
 
 //========================================================
     //hidden fields
@@ -294,7 +396,7 @@ class crcccontactform extends FormBase
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Submit request'),
+      '#value' => $this->t($contact_buttontrans),
       '#button_type' => 'primary',
     ];
     $form['complaint_closingCompleteDiv'] = [
@@ -409,8 +511,12 @@ class crcccontactform extends FormBase
         header('Location:/en/failed-submission');
         exit;
       } else {
+        if(str_contains( $_SERVER['REQUEST_URI'],"/fr/Contact-form")) {
+        header('Location:/fr/contact-form?result=' . $result);
+      }else{
         header('Location:/en/contact-form?result=' . $result);
-        curl_close($ch);
+      }
+      curl_close($ch);
       }
     }
 
